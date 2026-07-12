@@ -1,9 +1,14 @@
 {
   "dataset_name": "mega_hsse_open_training",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "record_schema": "open_training_schema.json",
-  "notes": "Open benchmark scaffold for 60-head HSSE Transformer research. Deployment claims require benchmark and expert validation evidence.",
+  "notes": "Open training and benchmark scaffold for 60-head HSSE Transformer research. Phase 3 dataset population complete. Deployment claims require benchmark and expert validation evidence.",
   "ai_data_records": [
-    "benchmark_cases.json"
+    "benchmark_cases.json",
+    "hazard_cases/hazard_scenarios.json",
+    "incident_cases/incident_scenarios.json",
+    "instructions/operational_instructions.json",
+    "reasoning_examples/reasoning_scenarios.json",
+    "evaluation/evaluation_cases.json"
   ]
 }

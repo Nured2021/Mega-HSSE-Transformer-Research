@@ -1,0 +1,138 @@
+[
+  {
+    "scenario_id": "inc_report_001",
+    "scenario": "A near miss involving a dropped tool from height was observed but the supervisor chose not to report it because no one was injured.",
+    "inputs": {"event_type": "near miss", "reported": false},
+    "expected_decision": "Near miss must be reported: all near misses have reporting obligations and are key leading safety indicators. Failure to report constitutes a compliance violation.",
+    "evidence_sources": ["ISO 45001:2018 Clause 10.2 — Incident Reporting", "OSHA recordkeeping requirements"],
+    "hsse_areas": [20],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "general"
+  },
+  {
+    "scenario_id": "inc_rca_001",
+    "scenario": "A worker suffered a fractured finger when it was caught in a conveyor belt. Apply root cause analysis to determine causal factors.",
+    "inputs": {"injury_type": "fractured finger", "mechanism": "caught in conveyor"},
+    "expected_decision": "Initiate RCA using 5-Why method: investigate machine guarding adequacy, LOTO compliance, JSA currency, worker training records, and supervisory oversight",
+    "evidence_sources": ["ISO 45001:2018 Clause 10.2", "OSHA 29 CFR 1910.212 — Machine Guarding"],
+    "hsse_areas": [21],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "inc_capa_001",
+    "scenario": "An audit finding from 6 months ago was closed as 'corrective action completed' but the same hazard condition has been found again during a follow-up inspection.",
+    "inputs": {"audit_finding_status": "closed", "recurrence": true},
+    "expected_decision": "Reopen CAPA: verify that root cause was correctly identified; implement effectiveness review process; escalate repeated findings to management for systemic review",
+    "evidence_sources": ["ISO 9001:2015 Clause 10.2 — Nonconformity and Corrective Action", "ISO 45001:2018 Clause 10.2"],
+    "hsse_areas": [22],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "general"
+  },
+  {
+    "scenario_id": "inc_lesson_001",
+    "scenario": "A serious electrical incident occurred at Site A, but management has not shared the lessons learned with other sites in the same company.",
+    "inputs": {"incident_type": "electrical injury", "lessons_shared": false},
+    "expected_decision": "Issue lessons learned bulletin across all sites immediately; present at next HSSE meeting; verify similar hazards are controlled at each site",
+    "evidence_sources": ["ISO 45001:2018 Clause 10.2", "IOGP Process Safety — Incident Sharing Guidelines"],
+    "hsse_areas": [23],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "general"
+  },
+  {
+    "scenario_id": "inc_emerg_001",
+    "scenario": "Site emergency evacuation drill has not been conducted in 14 months. A new emergency response plan has been written but not tested.",
+    "inputs": {"last_drill_months": 14, "erp_tested": false},
+    "expected_decision": "Schedule and conduct full emergency evacuation drill within 30 days; debrief all personnel; verify emergency response plan is current and roles are understood",
+    "evidence_sources": ["ISO 45001:2018 Clause 8.2 — Emergency Preparedness", "OSHA Emergency Action Plan requirements"],
+    "hsse_areas": [24],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "general"
+  },
+  {
+    "scenario_id": "inc_fa_001",
+    "scenario": "First aid kit inspection reveals 40% of items are expired or missing. The site has 35 workers. No registered first aider is on duty this shift.",
+    "inputs": {"first_aid_kit_compliance_percent": 60.0, "first_aider_present": false},
+    "expected_decision": "Immediately restock first aid kit to full compliance; ensure qualified first aider is present on every shift; review first aid needs assessment for site population",
+    "evidence_sources": ["OSHA 29 CFR 1910.151 — Medical Services and First Aid", "HSE First Aid at Work Regulations"],
+    "hsse_areas": [26],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "inc_crisis_001",
+    "scenario": "Large-scale chlorine gas release from a chemical plant. Multiple workers are reporting eye and respiratory irritation. Muster point is 150 metres from the release.",
+    "inputs": {"chemical": "chlorine", "release_type": "large scale", "workers_affected": 12},
+    "expected_decision": "Activate Incident Command System: declare emergency, evacuate to upwind muster point, alert emergency services, initiate shelter-in-place protocol for nearby community if required",
+    "evidence_sources": ["OSHA 29 CFR 1910.119 PSM", "NFPA 472 — Emergency Response Chemicals", "ICS Incident Command System"],
+    "hsse_areas": [27, 24],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "multi_risk"
+  },
+  {
+    "scenario_id": "inc_lti_001",
+    "scenario": "A worker missed 3 days of work following a back injury from manual handling. How should this be classified?",
+    "inputs": {"days_lost": 3, "injury_type": "back injury", "cause": "manual handling"},
+    "expected_decision": "Classify as Lost Time Injury (LTI): report to regulator per local requirements; enter in TRIR calculation; initiate RCA and CAPA; review manual handling assessment for the task",
+    "evidence_sources": ["OSHA Recordkeeping — 29 CFR 1904", "ISO 45001:2018 Clause 10.2"],
+    "hsse_areas": [20, 48],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "general"
+  },
+  {
+    "scenario_id": "inc_vehicle_rca_001",
+    "scenario": "A light vehicle reversed into a pedestrian in a laydown yard. No injuries but the vehicle speed exceeded 10 km/h in a 5 km/h zone. Conduct RCA.",
+    "inputs": {"incident_type": "vehicle pedestrian near miss", "vehicle_speed_kmh": 10.0, "speed_limit_kmh": 5.0},
+    "expected_decision": "RCA required: investigate speed management controls, physical segregation of pedestrians and vehicles, CCTV review, driver training records, and site traffic management plan compliance",
+    "evidence_sources": ["OSHA Walking-Working Surfaces regulations", "Site Traffic Management Plan"],
+    "hsse_areas": [21, 57],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "inc_fire_emerg_001",
+    "scenario": "Fire at the diesel fuel storage bund. Fire suppression system has been activated but flame is continuing. Two workers are unaccounted for.",
+    "inputs": {"fire_type": "fuel storage fire", "suppression_active": true, "workers_missing": 2},
+    "expected_decision": "Activate full emergency response: call emergency services immediately; do not re-enter search area until fire brigade declares safe; roll call all personnel at muster; activate incident command",
+    "evidence_sources": ["NFPA 30 — Flammable and Combustible Liquids Code", "Site Emergency Response Plan"],
+    "hsse_areas": [24, 25],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "multi_risk"
+  },
+  {
+    "scenario_id": "inc_mental_health_001",
+    "scenario": "A supervisor reports that a worker has displayed signs of severe psychological distress including threats to self-harm. What immediate action is required?",
+    "inputs": {"concern_type": "mental health crisis", "severity": "high"},
+    "expected_decision": "Activate mental health emergency protocol: remove person from hazardous work area immediately; ensure they are not alone; contact occupational health or emergency services; provide peer support resources",
+    "evidence_sources": ["ISO 45003:2021 — Psychological Health and Safety", "Mental Health First Aid guidelines"],
+    "hsse_areas": [40],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "inc_leadership_001",
+    "scenario": "Site HSSE data shows no management leadership HSSE walkarounds have been conducted in 45 days. HSSE incident rate has increased 30% compared to the previous period.",
+    "inputs": {"leadership_visits_days": 45, "incident_rate_change_percent": 30.0},
+    "expected_decision": "Escalate to senior management: immediately reinstate HSSE leadership walkabouts (minimum weekly); conduct management review meeting; develop HSSE improvement action plan with measurable targets",
+    "evidence_sources": ["ISO 45001:2018 Clause 5.1 — Leadership and Commitment", "IOGP Safety Culture Report"],
+    "hsse_areas": [1],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "general"
+  }
+]

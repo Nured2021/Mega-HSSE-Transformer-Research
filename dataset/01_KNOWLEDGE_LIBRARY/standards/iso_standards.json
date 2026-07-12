@@ -1,0 +1,39 @@
+{
+  "source_type": "standard",
+  "issuing_body": "International Organization for Standardization (ISO)",
+  "hsse_areas": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+  "standards": [
+    {
+      "reference": "ISO 45001:2018",
+      "title": "Occupational Health and Safety Management Systems — Requirements",
+      "summary": "Provides a framework for managing occupational health and safety (OH&S) risks and opportunities. Based on the Plan-Do-Check-Act model. Replaces OHSAS 18001.",
+      "key_clauses": {
+        "leadership_and_worker_participation": "Clause 5",
+        "planning": "Clause 6",
+        "support": "Clause 7",
+        "operation": "Clause 8",
+        "performance_evaluation": "Clause 9",
+        "improvement": "Clause 10"
+      },
+      "hsse_areas": [1, 2, 3, 4, 5, 6, 9, 10, 13]
+    },
+    {
+      "reference": "ISO 14001:2015",
+      "title": "Environmental Management Systems — Requirements",
+      "summary": "Specifies requirements for an environmental management system to enhance environmental performance, fulfil compliance obligations, and achieve environmental objectives.",
+      "hsse_areas": [42, 43, 44]
+    },
+    {
+      "reference": "ISO 31000:2018",
+      "title": "Risk Management — Guidelines",
+      "summary": "Provides guidelines on managing risk faced by organizations. Risk management framework includes risk identification, analysis, evaluation, treatment, monitoring, and communication.",
+      "hsse_areas": [5, 6]
+    },
+    {
+      "reference": "ISO 45003:2021",
+      "title": "Psychological Health and Safety at Work",
+      "summary": "Provides guidance for managing psychosocial risks within an OH&S management system. Covers work organization, social factors, and work environment that may affect health.",
+      "hsse_areas": [40, 50]
+    }
+  ]
+}

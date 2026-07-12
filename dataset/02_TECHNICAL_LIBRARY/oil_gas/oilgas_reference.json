@@ -1,0 +1,47 @@
+{
+  "source_type": "oil_gas_safety_reference",
+  "hsse_areas": [53, 25, 28, 35, 37, 54, 55],
+  "references": [
+    {
+      "reference": "API RP 49",
+      "title": "Drilling and Well Servicing Operations — H2S Environments",
+      "key_thresholds": {
+        "h2s_action_level_ppm": 1.0,
+        "h2s_idlh_ppm": 100.0,
+        "lel_evacuation_percent": 10.0
+      },
+      "hsse_areas": [53, 35, 41]
+    },
+    {
+      "reference": "API RP 2D",
+      "title": "Operation and Maintenance of Offshore Cranes",
+      "key_thresholds": {
+        "minimum_safety_factor": 5.0,
+        "wind_speed_suspend_knots": 25
+      },
+      "hsse_areas": [37, 54]
+    },
+    {
+      "reference": "SOLAS (International Convention for the Safety of Life at Sea)",
+      "title": "Marine Safety — International Convention",
+      "summary": "Primary international treaty for safety of merchant vessels. Covers firefighting, lifesaving appliances, radiocommunications, navigation, and management for safe operation.",
+      "hsse_areas": [54, 24, 25]
+    },
+    {
+      "reference": "IOGP Life Saving Rules",
+      "title": "International Association of Oil and Gas Producers — 9 Life Saving Rules",
+      "rules": [
+        "Work with a valid permit when required",
+        "Conduct gas tests when required",
+        "Verify isolation before work begins",
+        "Obtain authorization before overriding or disabling safety equipment",
+        "Protect yourself against a fall when working at height",
+        "Do not walk under a suspended load",
+        "Do not smoke or take ignition sources into a hazardous area",
+        "Do not drive while distracted or fatigued",
+        "Follow your Journey Management Plan"
+      ],
+      "hsse_areas": [53, 11, 14, 36, 37, 57]
+    }
+  ]
+}

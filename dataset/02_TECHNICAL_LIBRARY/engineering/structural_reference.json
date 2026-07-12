@@ -1,0 +1,42 @@
+{
+  "source_type": "engineering_reference",
+  "hsse_areas": [37, 39, 36, 34],
+  "references": [
+    {
+      "reference": "ASME B30.9",
+      "title": "Slings — Safety Standard for Cableways, Cranes, Derricks, Hoists, Hooks, Jacks and Slings",
+      "key_values": {
+        "minimum_safety_factor_critical_lift": 5.0,
+        "minimum_safety_factor_standard_lift": 3.5,
+        "maximum_wind_speed_crane_operation_kmh": 48
+      },
+      "summary": "Establishes safety requirements for construction, installation, operation, inspection, testing, maintenance, and use of cranes and hoisting equipment.",
+      "hsse_areas": [37]
+    },
+    {
+      "reference": "DNV-OS-H205",
+      "title": "Lifting Operations — Offshore Standards",
+      "key_values": {
+        "minimum_safety_factor_offshore_critical": 5.0,
+        "dynamic_amplification_factor_offshore": 1.5
+      },
+      "hsse_areas": [37, 54]
+    },
+    {
+      "reference": "ASME Boiler and Pressure Vessel Code (BPVC) Section VIII",
+      "title": "Rules for Construction of Pressure Vessels",
+      "key_values": {
+        "design_safety_factor_static": 3.5,
+        "hydrostatic_test_pressure_multiple": 1.5
+      },
+      "summary": "Provides requirements for design, fabrication, inspection, and certification of boilers and pressure vessels.",
+      "hsse_areas": [39]
+    },
+    {
+      "reference": "EN 1263-1",
+      "title": "Safety Nets — Safety Requirements, Test Methods",
+      "summary": "Specifies requirements and test methods for safety nets used as collective protection for fall protection in construction.",
+      "hsse_areas": [36]
+    }
+  ]
+}

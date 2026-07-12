@@ -1,0 +1,70 @@
+{
+  "source_type": "procedure",
+  "document_type": "safety_procedure_reference",
+  "hsse_areas": [14, 15, 16, 35, 36, 37, 38],
+  "procedures": [
+    {
+      "procedure_id": "CS-PROC-001",
+      "title": "Confined Space Entry Procedure",
+      "standard_reference": "OSHA 29 CFR 1910.146",
+      "steps": [
+        "1. Identify confined space classification (permit-required or non-permit-required)",
+        "2. Obtain valid Confined Space Entry Permit",
+        "3. Isolate all energy sources (LOTO if applicable)",
+        "4. Purge and ventilate the space",
+        "5. Test atmosphere: O2 19.5–23.5%, LEL <10%, toxic gases <PEL",
+        "6. Assign qualified attendant outside the space at all times",
+        "7. Establish rescue plan and have rescue equipment ready",
+        "8. Enter only after all permit conditions are satisfied",
+        "9. Monitor atmosphere continuously during entry",
+        "10. Exit and cancel permit on completion or if conditions change"
+      ],
+      "critical_thresholds": {
+        "oxygen_min": 19.5,
+        "oxygen_max": 23.5,
+        "lel_max_percent": 10.0
+      },
+      "hsse_areas": [35, 14]
+    },
+    {
+      "procedure_id": "WAH-PROC-001",
+      "title": "Working at Height Procedure",
+      "standard_reference": "OSHA 29 CFR 1926.502; ISO 45001 Clause 8.1.2",
+      "steps": [
+        "1. Complete Job Safety Analysis (JSA) for height work",
+        "2. Obtain working at height permit if required",
+        "3. Inspect all equipment: harness, lanyards, anchor points, scaffolding",
+        "4. Establish 100% tie-off rule — no movement without connection",
+        "5. Implement exclusion zone below work area",
+        "6. Check weather conditions — suspend work in high winds or rain",
+        "7. Ensure rescue plan is in place for fall arrest",
+        "8. Do not lean over edges or climb outside designated access points"
+      ],
+      "critical_thresholds": {
+        "minimum_height_requiring_protection_m": 1.8,
+        "maximum_wind_speed_for_work_kmh": 48
+      },
+      "hsse_areas": [36, 14, 16]
+    },
+    {
+      "procedure_id": "LIFT-PROC-001",
+      "title": "Crane and Rigging Safety Procedure",
+      "standard_reference": "ASME B30.9; DNV-OS-H205",
+      "steps": [
+        "1. Obtain Lifting Permit for all critical lifts",
+        "2. Calculate load weight and verify rigging capacity",
+        "3. Verify safety factor: minimum 5.0 for critical lifts",
+        "4. Inspect all lifting gear — slings, shackles, hooks",
+        "5. Establish exclusion zone — no persons under suspended load",
+        "6. Appoint qualified Rigger and Crane Operator",
+        "7. Conduct pre-lift meeting with all personnel",
+        "8. Verify wind speed is within crane operational limits",
+        "9. Lift proceeds only after all permit conditions satisfied"
+      ],
+      "critical_thresholds": {
+        "minimum_safety_factor_critical_lift": 5.0
+      },
+      "hsse_areas": [37, 14]
+    }
+  ]
+}

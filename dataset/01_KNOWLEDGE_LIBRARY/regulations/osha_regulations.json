@@ -1,0 +1,73 @@
+{
+  "source_type": "regulation",
+  "issuing_body": "Occupational Safety and Health Administration (OSHA)",
+  "jurisdiction": "United States",
+  "hsse_areas": [3, 12, 14, 15, 19, 25, 28, 29, 33, 35, 36, 37, 38, 41],
+  "standards": [
+    {
+      "reference": "OSHA 29 CFR 1910.146",
+      "title": "Permit-Required Confined Spaces",
+      "summary": "Requires employers to evaluate the workplace to determine if confined spaces are present and whether they are permit-required. Mandates a written permit system, atmospheric testing, rescue procedures, and trained attendants.",
+      "key_thresholds": {
+        "oxygen_minimum_percent": 19.5,
+        "oxygen_maximum_percent": 23.5,
+        "flammable_gas_maximum_lel_percent": 10.0
+      },
+      "hsse_areas": [35]
+    },
+    {
+      "reference": "OSHA 29 CFR 1910.147",
+      "title": "Control of Hazardous Energy (Lockout/Tagout)",
+      "summary": "Requires energy control procedures, employee training, and periodic inspections to prevent unexpected energization or startup of machinery during servicing.",
+      "hsse_areas": [15, 33]
+    },
+    {
+      "reference": "OSHA 29 CFR 1910.1000",
+      "title": "Air Contaminants — Permissible Exposure Limits (PELs)",
+      "summary": "Establishes permissible exposure limits for hundreds of air contaminants. TWA and ceiling limits are defined. Employers must limit worker exposure to listed substances.",
+      "key_thresholds": {
+        "twa_ratio_violation_threshold": 1.0
+      },
+      "hsse_areas": [41]
+    },
+    {
+      "reference": "OSHA 29 CFR 1926.502",
+      "title": "Fall Protection Systems Criteria and Practices",
+      "summary": "Specifies requirements for fall protection systems including guardrails, safety nets, and personal fall arrest systems. Applies to work at heights of 1.8 m or more in construction.",
+      "hsse_areas": [36]
+    },
+    {
+      "reference": "OSHA 29 CFR 1910.95",
+      "title": "Occupational Noise Exposure",
+      "summary": "Requires a hearing conservation program when noise exposures equal or exceed 85 dBA as an 8-hour TWA. PEL is 90 dBA. Hearing protection, monitoring, and audiometric testing required.",
+      "key_thresholds": {
+        "noise_dose_pel_percent": 100.0,
+        "action_level_dba": 85,
+        "pel_dba": 90
+      },
+      "hsse_areas": [29]
+    },
+    {
+      "reference": "OSHA 29 CFR 1926.1153",
+      "title": "Respirable Crystalline Silica — Construction",
+      "summary": "Establishes a permissible exposure limit (PEL) of 50 µg/m³ as an 8-hour TWA and an action level of 25 µg/m³ for respirable crystalline silica in construction.",
+      "key_thresholds": {
+        "silica_pel_ug_per_m3": 50,
+        "silica_action_level_ug_per_m3": 25
+      },
+      "hsse_areas": [41, 19]
+    },
+    {
+      "reference": "OSHA 29 CFR 1910.119",
+      "title": "Process Safety Management of Highly Hazardous Chemicals",
+      "summary": "Requires employers with processes involving highly hazardous chemicals to develop and implement a comprehensive management program including process hazard analysis, operating procedures, training, and emergency planning.",
+      "hsse_areas": [28, 25, 24]
+    },
+    {
+      "reference": "OSHA 29 CFR 1910.333",
+      "title": "Selection and Use of Work Practices — Electrical Safety",
+      "summary": "Requires deenergizing equipment before working on or near electrical conductors where possible. When energized work is required, specific safeguards including PPE and insulated tools must be used.",
+      "hsse_areas": [33, 15]
+    }
+  ]
+}

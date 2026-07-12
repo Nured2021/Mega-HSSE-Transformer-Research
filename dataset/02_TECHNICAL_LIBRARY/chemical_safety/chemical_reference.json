@@ -1,0 +1,35 @@
+{
+  "source_type": "chemical_safety_reference",
+  "hsse_areas": [28, 25, 43],
+  "references": [
+    {
+      "reference": "GHS (Globally Harmonized System of Classification and Labelling)",
+      "summary": "International standard for classifying chemicals according to their health, physical and environmental hazards and communicating hazard information through labels and Safety Data Sheets (SDS).",
+      "sds_sections": [
+        "Section 1: Identification",
+        "Section 2: Hazard Identification",
+        "Section 3: Composition/Information on Ingredients",
+        "Section 4: First Aid Measures",
+        "Section 5: Firefighting Measures",
+        "Section 6: Accidental Release Measures",
+        "Section 7: Handling and Storage",
+        "Section 8: Exposure Controls / PPE",
+        "Section 9: Physical and Chemical Properties",
+        "Section 10: Stability and Reactivity",
+        "Section 11: Toxicological Information",
+        "Section 12: Ecological Information"
+      ],
+      "hsse_areas": [28]
+    },
+    {
+      "reference": "Chemical Reactivity Worksheet (NOAA/EPA)",
+      "summary": "Identifies chemicals that can react with each other to produce undesirable effects such as fire, explosion, or toxic gas generation. Critical for compatibility screening before mixing or storage.",
+      "incompatibility_examples": [
+        {"chemical_a": "Sulfuric Acid", "chemical_b": "Water", "hazard": "Exothermic reaction, steam generation"},
+        {"chemical_a": "Bleach (Sodium Hypochlorite)", "chemical_b": "Ammonia", "hazard": "Toxic chloramine gas"},
+        {"chemical_a": "Hydrogen Peroxide", "chemical_b": "Organic materials", "hazard": "Explosive oxidation"}
+      ],
+      "hsse_areas": [28]
+    }
+  ]
+}

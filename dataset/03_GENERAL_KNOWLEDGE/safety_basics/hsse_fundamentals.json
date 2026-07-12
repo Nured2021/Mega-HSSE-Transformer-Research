@@ -1,0 +1,28 @@
+{
+  "source_type": "hsse_fundamentals",
+  "hsse_areas": [1, 2, 5, 6, 11, 18],
+  "concepts": [
+    {
+      "topic": "HSSE Management System Hierarchy",
+      "description": "An effective HSSE management system operates on the Plan-Do-Check-Act (PDCA) cycle. Policy and leadership commitment form the foundation. Risk management identifies hazards and evaluates risks. Controls are implemented following the hierarchy of controls. Performance is monitored through leading and lagging indicators.",
+      "hsse_areas": [1, 2, 5, 13]
+    },
+    {
+      "topic": "Hierarchy of Controls",
+      "description": "Controls are ranked in order of effectiveness: 1. Elimination (remove the hazard entirely), 2. Substitution (replace with less hazardous alternative), 3. Engineering controls (isolate people from hazard), 4. Administrative controls (change the way people work), 5. PPE (protect the worker from the hazard). Higher order controls are always preferred.",
+      "reference": "ISO 45001:2018 Clause 8.1.2; OSHA hierarchy",
+      "hsse_areas": [18]
+    },
+    {
+      "topic": "Risk Assessment Process",
+      "description": "Risk assessment involves: 1. Hazard identification, 2. Risk analysis (likelihood × consequence), 3. Risk evaluation against tolerance criteria, 4. Risk treatment (controls), 5. Risk monitoring and review. Fine-Kinney model: R = P × S × E where P = probability, S = severity, E = exposure.",
+      "hsse_areas": [5, 6]
+    },
+    {
+      "topic": "Safety Culture Maturity Model",
+      "description": "Organizations progress through five maturity levels: 1. Pathological ('who cares as long as nothing goes wrong'), 2. Reactive (safety is important only after incidents), 3. Calculative (we have systems to manage all hazards), 4. Proactive (we try to anticipate problems), 5. Generative (safety is how we do business).",
+      "reference": "Hudson Safety Culture Maturity Model (1999)",
+      "hsse_areas": [50, 1]
+    }
+  ]
+}

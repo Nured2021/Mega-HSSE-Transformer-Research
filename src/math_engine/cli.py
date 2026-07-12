@@ -15,6 +15,7 @@ Commands:
     verify      Deterministic verification check
     train       Open training artifact build from dataset folders
     evaluate    Benchmark evaluation report generation
+    pipeline    Phase 3 training pipeline — produce train/validation/test JSONL
 
 Run `python -m src.math_engine.cli --help` for full usage.
 
@@ -139,6 +140,24 @@ def cmd_evaluate(args: argparse.Namespace) -> None:
     print(f"{'=' * 60}\n")
 
 
+def cmd_pipeline(args: argparse.Namespace) -> None:
+    """Run Phase 3 training pipeline and write JSONL split files."""
+    from src.hsse_transformer.training_pipeline import build_training_splits
+
+    result = build_training_splits(
+        dataset_root=args.dataset_root,
+        output_dir=args.output_dir if args.output_dir else None,
+        train_ratio=args.train_ratio,
+        validation_ratio=args.validation_ratio,
+        seed=args.seed,
+    )
+    print(f"\n{'=' * 60}")
+    print("  Phase 3 Training Pipeline Summary")
+    print(f"{'=' * 60}")
+    print(json.dumps(result, indent=2))
+    print(f"{'=' * 60}\n")
+
+
 def build_parser() -> argparse.ArgumentParser:
     """Build and return the CLI argument parser."""
     parser = argparse.ArgumentParser(
@@ -160,6 +179,7 @@ def build_parser() -> argparse.ArgumentParser:
             "--output ./artifacts/open_model.json\n"
             "  python -m src.math_engine.cli evaluate --dataset-root ./dataset "
             "--output ./artifacts/benchmark_report.json\n"
+            "  python -m src.math_engine.cli pipeline --dataset-root ./dataset\n"
         ),
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -310,6 +330,37 @@ def build_parser() -> argparse.ArgumentParser:
         help="Output JSON path for generated benchmark report",
     )
     eval_parser.set_defaults(func=cmd_evaluate)
+
+    # -----------------------------------------------------------------------
+    # pipeline subcommand (Phase 3)
+    # -----------------------------------------------------------------------
+    pipe_parser = subparsers.add_parser(
+        "pipeline",
+        help="Phase 3 training pipeline — produce train/validation/test JSONL splits",
+    )
+    pipe_parser.add_argument(
+        "--dataset-root", required=True,
+        help="Absolute or relative path to dataset root containing 01..04 folders",
+    )
+    pipe_parser.add_argument(
+        "--output-dir", default=None,
+        help=(
+            "Output directory for JSONL files (default: <dataset-root>/04_AI_DATA/training/)"
+        ),
+    )
+    pipe_parser.add_argument(
+        "--train-ratio", type=float, default=0.70,
+        help="Fraction of unassigned records for training (default: 0.70)",
+    )
+    pipe_parser.add_argument(
+        "--validation-ratio", type=float, default=0.15,
+        help="Fraction of unassigned records for validation (default: 0.15)",
+    )
+    pipe_parser.add_argument(
+        "--seed", type=int, default=42,
+        help="Random seed for deterministic split of unassigned records (default: 42)",
+    )
+    pipe_parser.set_defaults(func=cmd_pipeline)
 
     return parser
 

@@ -2,8 +2,9 @@
 
 This folder contains the dataset structure for the Mega HSSE Transformer research project.
 
-**Status:** Folder structure established. Data ingestion pending.  
-**Target scale:** 1.5 TB (HSSE_AI_DATASET_MAX)
+**Status:** Phase 3 complete. All 4 layers populated. Training pipeline operational.
+**Total training records:** 70 across all 60 HSSE attention heads.
+**Target scale:** 1.5 TB (HSSE_AI_DATASET_MAX — future expansion)
 
 ---
 
@@ -95,7 +96,7 @@ All data ingested into this dataset must meet the following criteria:
 
 ---
 
-## Ingestion Pipeline (Future Phase)
+**Ingestion Pipeline (Phase 3 — COMPLETE)**
 
 The data ingestion pipeline will include:
 
@@ -111,22 +112,56 @@ See [`docs/BUILD_AND_PROOF_PLAN.md`](../docs/BUILD_AND_PROOF_PLAN.md) for detail
 
 ---
 
-## Open Training Workflow (Current Scaffold)
+## Open Training Workflow (Phase 3 — ACTIVE)
 
-Anyone can train using their own data by keeping this folder layout:
+The four dataset layers are now populated and the training pipeline is operational.
 
-- `dataset/01_KNOWLEDGE_LIBRARY`
-- `dataset/02_TECHNICAL_LIBRARY`
-- `dataset/03_GENERAL_KNOWLEDGE`
-- `dataset/04_AI_DATA`
+### Dataset Population Status
 
-Then:
+| Layer | Content | Status |
+|-------|---------|--------|
+| `01_KNOWLEDGE_LIBRARY` | OSHA regulations, ISO standards, safety policies, procedures | ✅ Populated |
+| `02_TECHNICAL_LIBRARY` | Engineering references, chemical safety, OEL tables, industry data | ✅ Populated |
+| `03_GENERAL_KNOWLEDGE` | HSSE fundamentals, definitions, acronyms | ✅ Populated |
+| `04_AI_DATA` | 70 labeled training records across all 60 HSSE heads | ✅ Populated |
 
-1. Add records that follow `open_training_schema.json`.
-2. Register record files in `manifest.json` (`ai_data_records` list).
-3. Run:
-   - `python -m src.math_engine.cli train --dataset-root ./dataset --output ./artifacts/open_model.json`
-   - `python -m src.math_engine.cli evaluate --dataset-root ./dataset --output ./artifacts/benchmark_report.json`
+### Training Records Summary
 
-The evaluation report includes deployment-readiness gating. Claims of deployment readiness
-must remain evidence-based and depend on benchmark + expert validation results.
+| File | Split | Count | Suites Covered |
+|------|-------|-------|----------------|
+| `benchmark_cases.json` | benchmark/test | 5 | unsafe_detection, no_guessing, technical_selection, multi_risk, expert_comparison |
+| `hazard_cases/hazard_scenarios.json` | train | 20 | unsafe_detection, no_guessing, technical_selection, multi_risk |
+| `incident_cases/incident_scenarios.json` | train | 12 | general, technical_selection, multi_risk |
+| `instructions/operational_instructions.json` | train | 15 | unsafe_detection, technical_selection, general |
+| `reasoning_examples/reasoning_scenarios.json` | validation | 8 | multi_risk, expert_comparison, technical_selection, no_guessing |
+| `evaluation/evaluation_cases.json` | test | 10 | unsafe_detection, technical_selection |
+| **Total** | | **70** | All 6 suites |
+
+### Phase 3 Pipeline Commands
+
+```bash
+# Run training data pipeline — produces train/validation/test JSONL splits
+python -m src.math_engine.cli pipeline \
+    --dataset-root ./dataset \
+    --output-dir ./dataset/04_AI_DATA/training
+
+# Build training artifact (Phase 2 open training)
+python -m src.math_engine.cli train \
+    --dataset-root ./dataset \
+    --output ./artifacts/open_model.json
+
+# Run benchmark evaluation (Phase 4 proof)
+python -m src.math_engine.cli evaluate \
+    --dataset-root ./dataset \
+    --output ./artifacts/benchmark_report.json
+```
+
+### JSONL Output
+
+After running the pipeline command, the following split files are produced:
+
+- `04_AI_DATA/training/train.jsonl` — ~47 records for model training
+- `04_AI_DATA/training/validation.jsonl` — ~8 records for validation
+- `04_AI_DATA/training/test.jsonl` — ~15 records for final testing
+
+Each line is a complete JSON object conforming to `open_training_schema.json`.

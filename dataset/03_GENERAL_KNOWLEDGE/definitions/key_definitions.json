@@ -1,0 +1,18 @@
+{
+  "source_type": "definitions",
+  "hsse_areas": [5, 6, 11, 14, 15, 20, 21, 22, 48, 49],
+  "definitions": [
+    {"term": "Hazard", "definition": "A source, situation, or act with potential for harm in terms of human injury or ill health, property damage, or environmental damage.", "hsse_areas": [6]},
+    {"term": "Risk", "definition": "The combination of the probability (likelihood) of occurrence of a hazardous event and the severity of injury, ill health, or damage that could result from the event.", "hsse_areas": [5]},
+    {"term": "Residual Risk", "definition": "Risk remaining after safety controls and mitigation measures have been applied. Formula: Rr = Ri × (1 - ε), where ε is control efficiency.", "hsse_areas": [5]},
+    {"term": "Near Miss", "definition": "An unplanned event that did not result in injury, illness, or damage but had the potential to do so. Also called 'close call', 'dangerous occurrence', or 'near-hit'.", "hsse_areas": [20, 49]},
+    {"term": "Lost Time Injury (LTI)", "definition": "A work-related injury or illness that results in at least one day away from work beyond the day of the incident.", "hsse_areas": [20, 48]},
+    {"term": "TRIR (Total Recordable Incident Rate)", "definition": "TRIR = (Number of recordable incidents × 200,000) / Total hours worked. Measures frequency of OSHA recordable injuries per 100 full-time employees.", "hsse_areas": [48]},
+    {"term": "Stop Work Authority (SWA)", "definition": "The right and responsibility of any employee or contractor to stop work when they observe or suspect a condition that poses an imminent threat to life, health, or the environment.", "hsse_areas": [11]},
+    {"term": "Permit to Work (PTW)", "definition": "A formal documented system to control certain types of work that are potentially hazardous. Ensures that proper authorization, planning, and controls are in place before work begins.", "hsse_areas": [14]},
+    {"term": "Root Cause", "definition": "The fundamental reason(s) for the occurrence of a problem that, if corrected, would prevent recurrence. Methods include 5-Why, Fault Tree Analysis, and Fishbone (Ishikawa) diagrams.", "hsse_areas": [21]},
+    {"term": "CAPA", "definition": "Corrective and Preventive Action. A system for investigating nonconformities, identifying root causes, and implementing actions to prevent recurrence (corrective) and prevent future issues (preventive).", "hsse_areas": [22]},
+    {"term": "TWA (Time-Weighted Average)", "definition": "The average airborne concentration of a substance over an 8-hour workday. Formula: TWA = Σ(Ci × Ti) / 8, where Ci is concentration and Ti is duration in hours.", "hsse_areas": [41]},
+    {"term": "LEL (Lower Explosive Limit)", "definition": "The minimum concentration of a flammable gas or vapour in air that is capable of igniting and exploding. Concentrations at or above 10% LEL require immediate action.", "hsse_areas": [25, 35]}
+  ]
+}
