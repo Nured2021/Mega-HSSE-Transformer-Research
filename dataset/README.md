@@ -74,6 +74,11 @@ This folder contains the dataset structure for the Mega HSSE Transformer researc
 - Split into train/validation/test sets when used for model training
 - No personally identifiable information (PII)
 
+**Open training files now included:**
+- `manifest.json` — dataset manifest listing AI record files
+- `open_training_schema.json` — canonical JSON schema contract
+- `benchmark_cases.json` — starter benchmark cases for proof suites
+
 ---
 
 ## Data Quality Standards
@@ -103,3 +108,25 @@ The data ingestion pipeline will include:
 
 **This pipeline is planned for Phase 1 of the Build & Proof Plan.**
 See [`docs/BUILD_AND_PROOF_PLAN.md`](../docs/BUILD_AND_PROOF_PLAN.md) for details.
+
+---
+
+## Open Training Workflow (Current Scaffold)
+
+Anyone can train using their own data by keeping this folder layout:
+
+- `/home/runner/work/Mega-HSSE-Transformer-Research/Mega-HSSE-Transformer-Research/dataset/01_KNOWLEDGE_LIBRARY`
+- `/home/runner/work/Mega-HSSE-Transformer-Research/Mega-HSSE-Transformer-Research/dataset/02_TECHNICAL_LIBRARY`
+- `/home/runner/work/Mega-HSSE-Transformer-Research/Mega-HSSE-Transformer-Research/dataset/03_GENERAL_KNOWLEDGE`
+- `/home/runner/work/Mega-HSSE-Transformer-Research/Mega-HSSE-Transformer-Research/dataset/04_AI_DATA`
+
+Then:
+
+1. Add records that follow `open_training_schema.json`.
+2. Register record files in `manifest.json` (`ai_data_records` list).
+3. Run:
+   - `python -m src.math_engine.cli train --dataset-root ./dataset --output ./artifacts/open_model.json`
+   - `python -m src.math_engine.cli evaluate --dataset-root ./dataset --output ./artifacts/benchmark_report.json`
+
+The evaluation report includes deployment-readiness gating. Claims of deployment readiness
+must remain evidence-based and depend on benchmark + expert validation results.

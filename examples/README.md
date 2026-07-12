@@ -162,6 +162,22 @@ python -m src.math_engine.cli verify \
 
 ---
 
+### 6. Open Training and Benchmark Commands
+
+```bash
+# Build open training artifact using dataset manifest and schema
+python -m src.math_engine.cli train \
+  --dataset-root ./dataset \
+  --output ./artifacts/open_model.json
+
+# Run benchmark scoring report (unsafe detection, no-guessing, domain selection, etc.)
+python -m src.math_engine.cli evaluate \
+  --dataset-root ./dataset \
+  --output ./artifacts/benchmark_report.json
+```
+
+---
+
 ## Running All Tests
 
 From the repository root:

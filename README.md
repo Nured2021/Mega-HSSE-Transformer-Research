@@ -113,6 +113,10 @@ Mega-HSSE-Transformer-Research/
 │       ├── __init__.py
 │       ├── rules.py                 ← Safety constraint rule definitions
 │       └── engine.py                ← Rule application engine
+│   └── hsse_transformer/            ← Open 60-head training/evaluation scaffold
+│       ├── __init__.py
+│       ├── domain_map.py            ← Fixed head_01..head_60 domain boundaries
+│       └── open_framework.py        ← Data contract, ingestion, gating, benchmarking
 ├── tests/
 │   ├── test_risk.py
 │   ├── test_exposure.py
@@ -155,6 +159,12 @@ python -m src.math_engine.cli incident --probabilities 0.1,0.05,0.02
 
 # Verification check (oxygen threshold)
 python -m src.math_engine.cli verify --oxygen-percent 18.0
+
+# Open training artifact build
+python -m src.math_engine.cli train --dataset-root ./dataset --output ./artifacts/open_model.json
+
+# Benchmark scoring report
+python -m src.math_engine.cli evaluate --dataset-root ./dataset --output ./artifacts/benchmark_report.json
 ```
 
 ### Run tests
