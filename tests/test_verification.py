@@ -26,6 +26,15 @@ class TestRuleRegistry:
     def test_extreme_risk_rule_exists(self):
         assert "extreme_risk" in RULES_BY_ID
 
+    def test_lel_rule_exists(self):
+        assert "lel_threshold" in RULES_BY_ID
+
+    def test_unprotected_energized_rule_exists(self):
+        assert "unprotected_energized_work" in RULES_BY_ID
+
+    def test_noise_dose_rule_exists(self):
+        assert "noise_dose_exceedance" in RULES_BY_ID
+
     def test_all_rules_have_required_fields(self):
         for rule in RULES:
             assert rule.rule_id, f"Rule missing rule_id: {rule}"
@@ -101,6 +110,47 @@ class TestCheckRule:
         with pytest.raises(ValueError, match="Unsupported operator"):
             check_rule(bad_rule, {"some_value": 5.0})
 
+    def test_lel_at_threshold_violated(self):
+        rule = RULES_BY_ID["lel_threshold"]
+        result = check_rule(rule, {"gas_lel_percent": 10.0})
+        assert result is not None
+        assert result.violated is True
+        assert "STOP WORK" in result.decision
+        assert result.threshold == 10.0
+
+    def test_lel_below_threshold_not_violated(self):
+        rule = RULES_BY_ID["lel_threshold"]
+        result = check_rule(rule, {"gas_lel_percent": 9.9})
+        assert result is not None
+        assert result.violated is False
+        assert result.decision is None
+
+    def test_unprotected_voltage_above_zero_violated(self):
+        rule = RULES_BY_ID["unprotected_energized_work"]
+        result = check_rule(rule, {"unprotected_voltage_kv": 0.4})
+        assert result is not None
+        assert result.violated is True
+        assert "LOTO" in result.decision
+
+    def test_unprotected_voltage_zero_not_violated(self):
+        rule = RULES_BY_ID["unprotected_energized_work"]
+        result = check_rule(rule, {"unprotected_voltage_kv": 0.0})
+        assert result is not None
+        assert result.violated is False
+
+    def test_noise_dose_at_pel_violated(self):
+        rule = RULES_BY_ID["noise_dose_exceedance"]
+        result = check_rule(rule, {"noise_dose_percent": 100.0})
+        assert result is not None
+        assert result.violated is True
+        assert "CORRECTIVE ACTION" in result.decision
+
+    def test_noise_dose_below_pel_not_violated(self):
+        rule = RULES_BY_ID["noise_dose_exceedance"]
+        result = check_rule(rule, {"noise_dose_percent": 99.9})
+        assert result is not None
+        assert result.violated is False
+
 
 class TestApplyRules:
     def test_oxygen_violation_detected(self):
@@ -159,3 +209,15 @@ class TestAnyViolated:
 
     def test_twa_below_oel_no_violation(self):
         assert any_violated({"twa_ratio": 0.8}) is False
+
+    def test_lel_violation_detected(self):
+        assert any_violated({"gas_lel_percent": 15.0}) is True
+
+    def test_lel_below_threshold_no_violation(self):
+        assert any_violated({"gas_lel_percent": 5.0}) is False
+
+    def test_noise_dose_violation(self):
+        assert any_violated({"noise_dose_percent": 110.0}) is True
+
+    def test_energized_work_violation(self):
+        assert any_violated({"unprotected_voltage_kv": 11.0}) is True

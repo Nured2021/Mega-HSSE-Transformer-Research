@@ -125,7 +125,7 @@ RULES: list[SafetyRule] = [
             "or respiratory protective equipment must be implemented immediately."
         ),
         standard="OSHA 29 CFR 1910.1000 / NIOSH REL",
-        hsse_area="Item 40: Industrial Hygiene",
+        hsse_area="Item 41: Industrial Hygiene",
     ),
     SafetyRule(
         rule_id="extreme_risk",
@@ -139,7 +139,52 @@ RULES: list[SafetyRule] = [
             "Risk must be reduced to an acceptable level before work resumes."
         ),
         standard="Fine-Kinney Risk Assessment (Kinney & Wiruth, 1976)",
-        hsse_area="Item 7: Risk Assessment",
+        hsse_area="Item 5: Risk Management Framework",
+    ),
+    SafetyRule(
+        rule_id="lel_threshold",
+        context_key="gas_lel_percent",
+        threshold=10.0,
+        operator="gte",
+        decision="STOP WORK AUTHORITY — Lower Explosive Limit Threshold Exceeded",
+        reason=(
+            "Gas concentration has reached or exceeded 10% of the Lower Explosive "
+            "Limit (LEL). The area must be immediately evacuated and ventilated. "
+            "Re-entry and ignition sources are prohibited until gas levels fall "
+            "below 10% LEL and a valid Permit to Work is issued."
+        ),
+        standard="OSHA 1910.119 — Process Safety Management; API RP 505",
+        hsse_area="Item 25: Fire Safety",
+    ),
+    SafetyRule(
+        rule_id="unprotected_energized_work",
+        context_key="unprotected_voltage_kv",
+        threshold=0.0,
+        operator="gt",
+        decision="LOTO REQUIRED — Stop Work on Energized Equipment",
+        reason=(
+            "Electrical work on energized equipment without Lockout/Tagout (LOTO) "
+            "has been detected. All energy sources must be isolated, locked, and "
+            "tagged before work proceeds. Re-energisation is prohibited until LOTO "
+            "is correctly applied and verified."
+        ),
+        standard="OSHA 29 CFR 1910.333 — Electrical Safety; NFPA 70E",
+        hsse_area="Item 33: Electrical Safety",
+    ),
+    SafetyRule(
+        rule_id="noise_dose_exceedance",
+        context_key="noise_dose_percent",
+        threshold=100.0,
+        operator="gte",
+        decision="CORRECTIVE ACTION REQUIRED — Noise Dose Exceeds Permissible Exposure Limit",
+        reason=(
+            "Worker noise dose has reached or exceeded 100% of the Permissible "
+            "Exposure Limit (PEL) for the 8-hour shift. Engineering controls, "
+            "administrative controls, or mandatory hearing protection must be "
+            "implemented immediately to prevent noise-induced hearing loss."
+        ),
+        standard="OSHA 29 CFR 1910.95 — Occupational Noise Exposure; NIOSH REL 85 dBA",
+        hsse_area="Item 29: Noise and Vibration",
     ),
 ]
 

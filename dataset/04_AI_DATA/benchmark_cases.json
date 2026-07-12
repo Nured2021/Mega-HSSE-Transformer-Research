@@ -42,7 +42,7 @@
       "OSHA 29 CFR 1926.1153",
       "NIOSH silica guidance"
     ],
-    "hsse_areas": [40, 31],
+    "hsse_areas": [41, 19],
     "multi_domain_link": true,
     "uncertainty_required": false,
     "split": "benchmark",
@@ -61,7 +61,7 @@
       "ASME B30.9",
       "Permit to Work procedure"
     ],
-    "hsse_areas": [37, 14, 47],
+    "hsse_areas": [37, 14, 17],
     "multi_domain_link": true,
     "uncertainty_required": false,
     "split": "benchmark",
@@ -78,7 +78,7 @@
     "evidence_sources": [
       "Fine-Kinney Risk Assessment (Kinney & Wiruth, 1976)"
     ],
-    "hsse_areas": [7],
+    "hsse_areas": [5],
     "uncertainty_required": false,
     "split": "benchmark",
     "suite": "expert_comparison"

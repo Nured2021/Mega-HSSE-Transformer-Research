@@ -119,7 +119,7 @@ Output:
 
 ---
 
-## Phase 3 — Deterministic Verification Layer (Status: ✅ Scaffold Built)
+## Phase 3 — Deterministic Verification Layer (Status: ✅ Scaffold Built — Extended)
 
 ### Build
 
@@ -128,14 +128,17 @@ Output:
 - ⏳ Integration with AI model output pipeline
 - ⏳ Full rule library for all 60 HSSE areas
 
-### Core Rules (Initial Scaffold)
+### Core Rules (Current Set)
 
-| Rule ID | Condition | Decision |
-|---------|-----------|----------|
-| `oxygen_threshold` | O₂ < 19.5% | Entry DENIED |
-| `lifting_sf_critical` | SF < 5.0 (critical lift) | STOP WORK AUTHORITY |
-| `twa_exceedance` | TWA > OEL | Corrective action required |
-| `extreme_risk` | Risk score > 400 | Immediate STOP WORK |
+| Rule ID | Condition | Decision | Standard |
+|---------|-----------|----------|----------|
+| `oxygen_threshold` | O₂ < 19.5% | Entry DENIED | OSHA 1910.146 |
+| `lifting_sf_critical` | SF < 5.0 (critical lift) | STOP WORK AUTHORITY | DNV-OS-H205 / ASME B30.9 |
+| `twa_exceedance` | TWA ≥ OEL | Corrective action required | OSHA 1910.1000 / NIOSH REL |
+| `extreme_risk` | Risk score ≥ 400 | Immediate STOP WORK | Fine-Kinney (Kinney & Wiruth, 1976) |
+| `lel_threshold` | Gas ≥ 10% LEL | STOP WORK AUTHORITY | OSHA 1910.119 / API RP 505 |
+| `unprotected_energized_work` | Voltage > 0 kV without LOTO | LOTO REQUIRED | OSHA 1910.333 / NFPA 70E |
+| `noise_dose_exceedance` | Noise dose ≥ 100% PEL | Corrective action required | OSHA 1910.95 / NIOSH REL 85 dBA |
 
 ### Proof Required
 
@@ -149,15 +152,43 @@ Output:
 
 ### Build
 
-- Design 60-head attention architecture, one head per HSSE area
-- Integrate mathematical engine as a post-processing verification layer
-- Build the Reasoning Chain:
+- ✅ 60-head domain map defined (`src/hsse_transformer/domain_map.py`)
+- ✅ Open training and benchmark scaffold (`src/hsse_transformer/open_framework.py`)
+- ⏳ Full transformer model integration with 60 attention heads
+- ⏳ Logic gate layer wired to deterministic verification engine
+
+The 60 heads are organised into **6 functional zones**:
+
+| Zone | Heads | Scope |
+|------|-------|-------|
+| 1 — Leadership, Policy & Foundation | 01–13 | Safety governance, legal, culture |
+| 2 — Operational Controls | 14–19, 45–47 | PTW, LOTO, JSA, BBS, PPE |
+| 3 — Hazard Domains | 28–39 | Chemical, electrical, mechanical, physical |
+| 4 — Incident Response & Crisis | 20–27, 59 | Emergency, fire, first aid, RCA |
+| 5 — Environmental & Occupational Health | 40–44 | Industrial hygiene, pollution, sustainability |
+| 6 — Industry & Performance | 48–58, 60 | Sector-specific + master integration head |
+
+The Reasoning Chain integrates deterministic gates per head:
 
 ```
 RC = Softmax(QKᵀ/√dk) · V · Logic Gate(G)
 ```
 
-Where G is the deterministic verification gate.
+Where G is the deterministic verification gate. For a "Safe" output all active gates
+must pass: G_total = Π(Head_i) = 1.
+
+### Reliability Target
+
+The system targets a **High-Reliability Research Target (HRRT)** of R_sys > 0.9999,
+mathematically expressed as:
+
+```
+R_sys = Π(1 - Pj),  j = 1..60
+```
+
+Where P_j is the measured failure probability of each domain head. This is a research
+benchmark. Formal SIL certification (IEC 61508 lifecycle) requires an independent
+third-party audit and is not claimed here.
 
 ### Proof Required
 

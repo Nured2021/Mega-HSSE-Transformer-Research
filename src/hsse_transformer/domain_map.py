@@ -1,74 +1,338 @@
 """
 Mega HSSE Transformer — 60-Head Domain Map
 
-Defines fixed topic boundaries for all 60 HSSE attention heads.
-The mapping is deterministic and shared across training/evaluation workflows.
+Defines fixed topic boundaries for all 60 HSSE attention heads organised into
+six functional zones. The mapping is deterministic and shared across
+training/evaluation workflows.
+
+Zone 1 — Leadership, Policy & Foundation   (heads 01–13)
+Zone 2 — Operational Controls & Risk Mitigation (heads 14–19, 45–47)
+Zone 3 — Hazard Domains — Physical & Chemical  (heads 28–39)
+Zone 4 — Incident Response & Crisis Management (heads 20–27, 59)
+Zone 5 — Environmental & Occupational Health   (heads 40–44)
+Zone 6 — Specialised Industry & Performance    (heads 48–58, 60)
 """
 
 from typing import Dict, List
 
 
 HEAD_DOMAIN_MAP: Dict[int, dict] = {
-    1: {"name": "HSSE Governance", "keywords": ["governance", "policy", "management"]},
-    2: {"name": "Safety Leadership", "keywords": ["leadership", "accountability", "ownership"]},
-    3: {"name": "Safety Culture", "keywords": ["culture", "behavior", "engagement"]},
-    4: {"name": "Legal Compliance", "keywords": ["compliance", "legal", "regulatory"]},
-    5: {"name": "Hazard Identification", "keywords": ["hazard", "identification", "unsafe"]},
-    6: {"name": "Risk Analysis", "keywords": ["risk", "analysis", "matrix"]},
-    7: {"name": "Risk Assessment", "keywords": ["risk", "assessment", "score"]},
-    8: {"name": "Control Hierarchy", "keywords": ["control", "elimination", "mitigation"]},
-    9: {"name": "Audit and Inspection", "keywords": ["audit", "inspection", "finding"]},
-    10: {"name": "Competence Management", "keywords": ["competence", "qualification", "training"]},
-    11: {"name": "Stop Work Authority", "keywords": ["stop work", "authority", "critical"]},
-    12: {"name": "Regulatory Standards", "keywords": ["osha", "iso", "ilo"]},
-    13: {"name": "Contractor Safety", "keywords": ["contractor", "vendor", "prequalification"]},
-    14: {"name": "Permit to Work", "keywords": ["permit", "ptw", "authorization"]},
-    15: {"name": "Lockout Tagout", "keywords": ["loto", "isolation", "lockout"]},
-    16: {"name": "Job Safety Analysis", "keywords": ["jsa", "job safety", "task analysis"]},
-    17: {"name": "Toolbox Talks", "keywords": ["toolbox", "briefing", "pre-job"]},
-    18: {"name": "Barrier Management", "keywords": ["barrier", "safeguard", "layer"]},
-    19: {"name": "Change Management", "keywords": ["moc", "change", "modification"]},
-    20: {"name": "Incident Reporting", "keywords": ["incident", "reporting", "event"]},
-    21: {"name": "Incident Investigation", "keywords": ["investigation", "root cause", "rca"]},
-    22: {"name": "Corrective Actions", "keywords": ["capa", "corrective", "preventive"]},
-    23: {"name": "Learning from Events", "keywords": ["lesson learned", "learning", "trend"]},
-    24: {"name": "Emergency Response", "keywords": ["emergency", "response", "evacuation"]},
-    25: {"name": "Fire and Explosion", "keywords": ["fire", "explosion", "flammable"]},
-    26: {"name": "First Aid", "keywords": ["first aid", "medical", "injury"]},
-    27: {"name": "Crisis Management", "keywords": ["crisis", "command", "incident command"]},
-    28: {"name": "Chemical Safety", "keywords": ["chemical", "compatibility", "reaction"]},
-    29: {"name": "Toxicology", "keywords": ["toxic", "toxicity", "dose"]},
-    30: {"name": "Process Safety", "keywords": ["process safety", "pressure", "containment"]},
-    31: {"name": "Respiratory Protection", "keywords": ["respirator", "fit test", "airborne"]},
-    32: {"name": "Electrical Safety", "keywords": ["electrical", "arc flash", "energized"]},
-    33: {"name": "Working at Height", "keywords": ["height", "fall", "harness"]},
-    34: {"name": "Mechanical Safety", "keywords": ["mechanical", "guarding", "machine"]},
-    35: {"name": "Confined Space Safety", "keywords": ["confined space", "oxygen", "entry"]},
-    36: {"name": "Pressure Systems", "keywords": ["pressure", "vessel", "relief"]},
-    37: {"name": "Lifting and Rigging", "keywords": ["lifting", "rigging", "crane"]},
-    38: {"name": "Radiation Safety", "keywords": ["radiation", "dose", "ionizing"]},
-    39: {"name": "Ergonomics", "keywords": ["ergonomic", "musculoskeletal", "posture"]},
-    40: {"name": "Industrial Hygiene", "keywords": ["hygiene", "silica", "exposure"]},
-    41: {"name": "Occupational Health", "keywords": ["health", "occupational", "screening"]},
-    42: {"name": "Waste Management", "keywords": ["waste", "disposal", "segregation"]},
-    43: {"name": "Pollution Control", "keywords": ["pollution", "emission", "spill"]},
-    44: {"name": "Environmental Protection", "keywords": ["environment", "ecology", "protection"]},
-    45: {"name": "Training Systems", "keywords": ["training", "competency", "curriculum"]},
-    46: {"name": "Communication", "keywords": ["communication", "handover", "brief"]},
-    47: {"name": "Human Factors", "keywords": ["human factors", "fatigue", "error"]},
-    48: {"name": "Performance Indicators", "keywords": ["kpi", "metric", "performance"]},
-    49: {"name": "Behavior Based Safety", "keywords": ["behavior", "observation", "intervention"]},
-    50: {"name": "Safety Performance", "keywords": ["trir", "lagging", "leading"]},
-    51: {"name": "Construction Safety", "keywords": ["construction", "site", "excavation"]},
-    52: {"name": "Mining Safety", "keywords": ["mining", "pit", "underground"]},
-    53: {"name": "Oil and Gas Safety", "keywords": ["offshore", "drilling", "hydrocarbon"]},
-    54: {"name": "Manufacturing Safety", "keywords": ["manufacturing", "production", "plant"]},
-    55: {"name": "Logistics Safety", "keywords": ["warehouse", "logistics", "material handling"]},
-    56: {"name": "Maritime Safety", "keywords": ["marine", "vessel", "navigation"]},
-    57: {"name": "Transportation Safety", "keywords": ["transport", "vehicle", "road"]},
-    58: {"name": "Security and Protection", "keywords": ["security", "threat", "access control"]},
-    59: {"name": "Business Continuity", "keywords": ["continuity", "resilience", "recovery"]},
-    60: {"name": "Data and AI Assurance", "keywords": ["ai", "data quality", "hallucination"]},
+    # ------------------------------------------------------------------
+    # Zone 1: Leadership, Policy & Foundation (01–13)
+    # ------------------------------------------------------------------
+    1: {
+        "name": "HSSE Leadership",
+        "zone": 1,
+        "keywords": ["leadership", "management", "commitment", "accountability"],
+    },
+    2: {
+        "name": "Policy and Strategy",
+        "zone": 1,
+        "keywords": ["policy", "strategy", "vision", "corporate"],
+    },
+    3: {
+        "name": "Legal and Regulatory",
+        "zone": 1,
+        "keywords": ["legal", "regulatory", "law", "legislation"],
+    },
+    4: {
+        "name": "Objectives and KPIs",
+        "zone": 1,
+        "keywords": ["objectives", "kpi", "targets", "goals"],
+    },
+    5: {
+        "name": "Risk Management Framework",
+        "zone": 1,
+        "keywords": ["risk", "framework", "assessment", "score"],
+    },
+    6: {
+        "name": "Hazard Identification",
+        "zone": 1,
+        "keywords": ["hazard", "identification", "unsafe", "hira"],
+    },
+    7: {
+        "name": "Management of Change",
+        "zone": 1,
+        "keywords": ["moc", "management of change", "modification", "change"],
+    },
+    8: {
+        "name": "Contractor Management",
+        "zone": 1,
+        "keywords": ["contractor", "vendor", "prequalification", "subcontractor"],
+    },
+    9: {
+        "name": "Competency and Training",
+        "zone": 1,
+        "keywords": ["competency", "qualification", "training", "certification"],
+    },
+    10: {
+        "name": "Communication and Consultation",
+        "zone": 1,
+        "keywords": ["communication", "consultation", "briefing", "handover"],
+    },
+    11: {
+        "name": "Stop Work Authority",
+        "zone": 1,
+        "keywords": ["stop work", "authority", "critical", "swa"],
+    },
+    12: {
+        "name": "Compliance Obligations",
+        "zone": 1,
+        "keywords": ["compliance", "obligation", "requirement", "osha", "iso", "ilo"],
+    },
+    13: {
+        "name": "Internal Audit",
+        "zone": 1,
+        "keywords": ["audit", "inspection", "finding", "self-assessment"],
+    },
+    # ------------------------------------------------------------------
+    # Zone 2: Operational Controls & Risk Mitigation (14–19, 45–47)
+    # ------------------------------------------------------------------
+    14: {
+        "name": "Permit to Work",
+        "zone": 2,
+        "keywords": ["permit", "ptw", "authorization", "work permit"],
+    },
+    15: {
+        "name": "Lockout Tagout",
+        "zone": 2,
+        "keywords": ["loto", "isolation", "lockout", "tagout"],
+    },
+    16: {
+        "name": "Job Safety Analysis",
+        "zone": 2,
+        "keywords": ["jsa", "job safety", "task analysis", "step"],
+    },
+    17: {
+        "name": "Behavioral Based Safety",
+        "zone": 2,
+        "keywords": ["behavior", "observation", "intervention", "bbs"],
+    },
+    18: {
+        "name": "Hierarchy of Controls",
+        "zone": 2,
+        "keywords": ["control", "elimination", "substitution", "mitigation"],
+    },
+    19: {
+        "name": "Personal Protective Equipment",
+        "zone": 2,
+        "keywords": ["ppe", "personal protective", "equipment", "respiratory", "protection"],
+    },
+    20: {
+        "name": "Incident Reporting",
+        "zone": 4,
+        "keywords": ["incident", "reporting", "event", "notification"],
+    },
+    21: {
+        "name": "Root Cause Analysis",
+        "zone": 4,
+        "keywords": ["investigation", "root cause", "rca", "why"],
+    },
+    22: {
+        "name": "CAPA Management",
+        "zone": 4,
+        "keywords": ["capa", "corrective", "preventive", "action"],
+    },
+    23: {
+        "name": "Lessons Learned",
+        "zone": 4,
+        "keywords": ["lesson learned", "learning", "trend", "sharing"],
+    },
+    24: {
+        "name": "Emergency Planning",
+        "zone": 4,
+        "keywords": ["emergency", "evacuation", "response", "drill"],
+    },
+    25: {
+        "name": "Fire Safety",
+        "zone": 4,
+        "keywords": ["fire", "explosion", "flammable", "suppression", "lel"],
+    },
+    26: {
+        "name": "First Aid and Medical",
+        "zone": 4,
+        "keywords": ["first aid", "medical", "injury", "trauma"],
+    },
+    27: {
+        "name": "Crisis Management",
+        "zone": 4,
+        "keywords": ["crisis", "command", "incident command", "continuity"],
+    },
+    # ------------------------------------------------------------------
+    # Zone 3: Hazard Domains — Physical & Chemical (28–39)
+    # ------------------------------------------------------------------
+    28: {
+        "name": "Chemical Safety",
+        "zone": 3,
+        "keywords": ["chemical", "compatibility", "reaction", "coshh", "sds"],
+    },
+    29: {
+        "name": "Noise and Vibration",
+        "zone": 3,
+        "keywords": ["noise", "vibration", "decibel", "hearing"],
+    },
+    30: {
+        "name": "Radiation Safety",
+        "zone": 3,
+        "keywords": ["radiation", "dose", "ionizing", "nuclear"],
+    },
+    31: {
+        "name": "Biological Hazards",
+        "zone": 3,
+        "keywords": ["biological", "pathogen", "infection", "biohazard"],
+    },
+    32: {
+        "name": "Thermal Stress",
+        "zone": 3,
+        "keywords": ["thermal", "heat stress", "cold", "temperature"],
+    },
+    33: {
+        "name": "Electrical Safety",
+        "zone": 3,
+        "keywords": ["electrical", "arc flash", "energized", "voltage"],
+    },
+    34: {
+        "name": "Mechanical Safety",
+        "zone": 3,
+        "keywords": ["mechanical", "guarding", "machine", "rotating"],
+    },
+    35: {
+        "name": "Confined Space Safety",
+        "zone": 3,
+        "keywords": ["confined space", "oxygen", "entry", "atmospheric"],
+    },
+    36: {
+        "name": "Working at Height",
+        "zone": 3,
+        "keywords": ["height", "fall", "harness", "scaffolding"],
+    },
+    37: {
+        "name": "Lifting and Rigging",
+        "zone": 3,
+        "keywords": ["lifting", "rigging", "crane", "sling"],
+    },
+    38: {
+        "name": "Excavation and Trenching",
+        "zone": 3,
+        "keywords": ["excavation", "trenching", "shoring", "soil"],
+    },
+    39: {
+        "name": "Pressure Systems",
+        "zone": 3,
+        "keywords": ["pressure", "vessel", "relief", "containment"],
+    },
+    # ------------------------------------------------------------------
+    # Zone 5: Environmental & Occupational Health (40–44)
+    # ------------------------------------------------------------------
+    40: {
+        "name": "Occupational Health",
+        "zone": 5,
+        "keywords": ["health", "occupational", "surveillance", "screening"],
+    },
+    41: {
+        "name": "Industrial Hygiene",
+        "zone": 5,
+        "keywords": ["hygiene", "silica", "exposure", "twa", "ih"],
+    },
+    42: {
+        "name": "Waste Management",
+        "zone": 5,
+        "keywords": ["waste", "disposal", "segregation", "hazardous waste"],
+    },
+    43: {
+        "name": "Pollution Control",
+        "zone": 5,
+        "keywords": ["pollution", "emission", "spill", "effluent"],
+    },
+    44: {
+        "name": "Sustainability",
+        "zone": 5,
+        "keywords": ["sustainability", "carbon", "esg", "environment", "ecology"],
+    },
+    45: {
+        "name": "Safety Induction",
+        "zone": 2,
+        "keywords": ["induction", "onboarding", "site access", "orientation"],
+    },
+    46: {
+        "name": "Document Control",
+        "zone": 2,
+        "keywords": ["document", "procedure", "revision", "controlled"],
+    },
+    47: {
+        "name": "Resource Management",
+        "zone": 2,
+        "keywords": ["resource", "manpower", "staffing", "availability"],
+    },
+    # ------------------------------------------------------------------
+    # Zone 6: Specialised Industry & Performance (48–58, 60)
+    # ------------------------------------------------------------------
+    48: {
+        "name": "Lagging Indicators",
+        "zone": 6,
+        "keywords": ["lagging", "trir", "ltir", "recordable", "severity rate"],
+    },
+    49: {
+        "name": "Leading Indicators",
+        "zone": 6,
+        "keywords": ["leading", "proactive", "near miss", "observation"],
+    },
+    50: {
+        "name": "Safety Culture Index",
+        "zone": 6,
+        "keywords": ["culture", "maturity", "climate", "engagement"],
+    },
+    51: {
+        "name": "Construction Safety",
+        "zone": 6,
+        "keywords": ["construction", "site", "civil", "building"],
+    },
+    52: {
+        "name": "Mining Safety",
+        "zone": 6,
+        "keywords": ["mining", "pit", "underground", "tunneling"],
+    },
+    53: {
+        "name": "Oil and Gas Safety",
+        "zone": 6,
+        "keywords": ["offshore", "drilling", "hydrocarbon", "oil", "gas"],
+    },
+    54: {
+        "name": "Marine Safety",
+        "zone": 6,
+        "keywords": ["marine", "vessel", "maritime", "navigation"],
+    },
+    55: {
+        "name": "Aviation Safety",
+        "zone": 6,
+        "keywords": ["aviation", "helideck", "helicopter", "air"],
+    },
+    56: {
+        "name": "Logistics and Warehousing",
+        "zone": 6,
+        "keywords": ["warehouse", "logistics", "material handling", "forklift"],
+    },
+    57: {
+        "name": "Transportation Safety",
+        "zone": 6,
+        "keywords": ["transport", "vehicle", "road", "fleet"],
+    },
+    58: {
+        "name": "Manufacturing Safety",
+        "zone": 6,
+        "keywords": ["manufacturing", "production", "plant", "production line"],
+    },
+    # Zone 4 continued (head 59 is within Zone 4 range)
+    59: {
+        "name": "Physical Security",
+        "zone": 4,
+        "keywords": ["security", "threat", "access control", "intrusion"],
+    },
+    60: {
+        "name": "Mega-Scale Integration",
+        "zone": 6,
+        "keywords": ["mega", "integration", "synthesis", "master", "system"],
+    },
 }
 
 

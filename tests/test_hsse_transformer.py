@@ -63,7 +63,7 @@ def _create_dataset_fixture(root: Path) -> Path:
             "inputs": {"hazard": "silica dust"},
             "expected_decision": "Apply industrial hygiene controls",
             "evidence_sources": ["OSHA silica"],
-            "hsse_areas": [40, 31],
+            "hsse_areas": [41, 19],
             "multi_domain_link": True,
             "uncertainty_required": False,
             "split": "benchmark",

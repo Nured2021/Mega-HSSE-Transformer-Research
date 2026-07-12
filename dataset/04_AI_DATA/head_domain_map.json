@@ -1,107 +1,133 @@
 {
   "head_01": {
     "hsse_area": 1,
-    "name": "HSSE Governance",
+    "zone": 1,
+    "name": "HSSE Leadership",
     "keywords": [
-      "governance",
-      "policy",
-      "management"
+      "leadership",
+      "management",
+      "commitment",
+      "accountability"
     ]
   },
   "head_02": {
     "hsse_area": 2,
-    "name": "Safety Leadership",
+    "zone": 1,
+    "name": "Policy and Strategy",
     "keywords": [
-      "leadership",
-      "accountability",
-      "ownership"
+      "policy",
+      "strategy",
+      "vision",
+      "corporate"
     ]
   },
   "head_03": {
     "hsse_area": 3,
-    "name": "Safety Culture",
+    "zone": 1,
+    "name": "Legal and Regulatory",
     "keywords": [
-      "culture",
-      "behavior",
-      "engagement"
+      "legal",
+      "regulatory",
+      "law",
+      "legislation"
     ]
   },
   "head_04": {
     "hsse_area": 4,
-    "name": "Legal Compliance",
+    "zone": 1,
+    "name": "Objectives and KPIs",
     "keywords": [
-      "compliance",
-      "legal",
-      "regulatory"
+      "objectives",
+      "kpi",
+      "targets",
+      "goals"
     ]
   },
   "head_05": {
     "hsse_area": 5,
-    "name": "Hazard Identification",
-    "keywords": [
-      "hazard",
-      "identification",
-      "unsafe"
-    ]
-  },
-  "head_06": {
-    "hsse_area": 6,
-    "name": "Risk Analysis",
+    "zone": 1,
+    "name": "Risk Management Framework",
     "keywords": [
       "risk",
-      "analysis",
-      "matrix"
-    ]
-  },
-  "head_07": {
-    "hsse_area": 7,
-    "name": "Risk Assessment",
-    "keywords": [
-      "risk",
+      "framework",
       "assessment",
       "score"
     ]
   },
+  "head_06": {
+    "hsse_area": 6,
+    "zone": 1,
+    "name": "Hazard Identification",
+    "keywords": [
+      "hazard",
+      "identification",
+      "unsafe",
+      "hira"
+    ]
+  },
+  "head_07": {
+    "hsse_area": 7,
+    "zone": 1,
+    "name": "Management of Change",
+    "keywords": [
+      "moc",
+      "management of change",
+      "modification",
+      "change"
+    ]
+  },
   "head_08": {
     "hsse_area": 8,
-    "name": "Control Hierarchy",
+    "zone": 1,
+    "name": "Contractor Management",
     "keywords": [
-      "control",
-      "elimination",
-      "mitigation"
+      "contractor",
+      "vendor",
+      "prequalification",
+      "subcontractor"
     ]
   },
   "head_09": {
     "hsse_area": 9,
-    "name": "Audit and Inspection",
+    "zone": 1,
+    "name": "Competency and Training",
     "keywords": [
-      "audit",
-      "inspection",
-      "finding"
+      "competency",
+      "qualification",
+      "training",
+      "certification"
     ]
   },
   "head_10": {
     "hsse_area": 10,
-    "name": "Competence Management",
+    "zone": 1,
+    "name": "Communication and Consultation",
     "keywords": [
-      "competence",
-      "qualification",
-      "training"
+      "communication",
+      "consultation",
+      "briefing",
+      "handover"
     ]
   },
   "head_11": {
     "hsse_area": 11,
+    "zone": 1,
     "name": "Stop Work Authority",
     "keywords": [
       "stop work",
       "authority",
-      "critical"
+      "critical",
+      "swa"
     ]
   },
   "head_12": {
     "hsse_area": 12,
-    "name": "Regulatory Standards",
+    "zone": 1,
+    "name": "Compliance Obligations",
     "keywords": [
+      "compliance",
+      "obligation",
+      "requirement",
       "osha",
       "iso",
       "ilo"
@@ -109,434 +135,538 @@
   },
   "head_13": {
     "hsse_area": 13,
-    "name": "Contractor Safety",
+    "zone": 1,
+    "name": "Internal Audit",
     "keywords": [
-      "contractor",
-      "vendor",
-      "prequalification"
+      "audit",
+      "inspection",
+      "finding",
+      "self-assessment"
     ]
   },
   "head_14": {
     "hsse_area": 14,
+    "zone": 2,
     "name": "Permit to Work",
     "keywords": [
       "permit",
       "ptw",
-      "authorization"
+      "authorization",
+      "work permit"
     ]
   },
   "head_15": {
     "hsse_area": 15,
+    "zone": 2,
     "name": "Lockout Tagout",
     "keywords": [
       "loto",
       "isolation",
-      "lockout"
+      "lockout",
+      "tagout"
     ]
   },
   "head_16": {
     "hsse_area": 16,
+    "zone": 2,
     "name": "Job Safety Analysis",
     "keywords": [
       "jsa",
       "job safety",
-      "task analysis"
+      "task analysis",
+      "step"
     ]
   },
   "head_17": {
     "hsse_area": 17,
-    "name": "Toolbox Talks",
+    "zone": 2,
+    "name": "Behavioral Based Safety",
     "keywords": [
-      "toolbox",
-      "briefing",
-      "pre-job"
+      "behavior",
+      "observation",
+      "intervention",
+      "bbs"
     ]
   },
   "head_18": {
     "hsse_area": 18,
-    "name": "Barrier Management",
+    "zone": 2,
+    "name": "Hierarchy of Controls",
     "keywords": [
-      "barrier",
-      "safeguard",
-      "layer"
+      "control",
+      "elimination",
+      "substitution",
+      "mitigation"
     ]
   },
   "head_19": {
     "hsse_area": 19,
-    "name": "Change Management",
+    "zone": 2,
+    "name": "Personal Protective Equipment",
     "keywords": [
-      "moc",
-      "change",
-      "modification"
+      "ppe",
+      "personal protective",
+      "equipment",
+      "respiratory",
+      "protection"
     ]
   },
   "head_20": {
     "hsse_area": 20,
+    "zone": 4,
     "name": "Incident Reporting",
     "keywords": [
       "incident",
       "reporting",
-      "event"
+      "event",
+      "notification"
     ]
   },
   "head_21": {
     "hsse_area": 21,
-    "name": "Incident Investigation",
+    "zone": 4,
+    "name": "Root Cause Analysis",
     "keywords": [
       "investigation",
       "root cause",
-      "rca"
+      "rca",
+      "why"
     ]
   },
   "head_22": {
     "hsse_area": 22,
-    "name": "Corrective Actions",
+    "zone": 4,
+    "name": "CAPA Management",
     "keywords": [
       "capa",
       "corrective",
-      "preventive"
+      "preventive",
+      "action"
     ]
   },
   "head_23": {
     "hsse_area": 23,
-    "name": "Learning from Events",
+    "zone": 4,
+    "name": "Lessons Learned",
     "keywords": [
       "lesson learned",
       "learning",
-      "trend"
+      "trend",
+      "sharing"
     ]
   },
   "head_24": {
     "hsse_area": 24,
-    "name": "Emergency Response",
+    "zone": 4,
+    "name": "Emergency Planning",
     "keywords": [
       "emergency",
+      "evacuation",
       "response",
-      "evacuation"
+      "drill"
     ]
   },
   "head_25": {
     "hsse_area": 25,
-    "name": "Fire and Explosion",
+    "zone": 4,
+    "name": "Fire Safety",
     "keywords": [
       "fire",
       "explosion",
-      "flammable"
+      "flammable",
+      "suppression",
+      "lel"
     ]
   },
   "head_26": {
     "hsse_area": 26,
-    "name": "First Aid",
+    "zone": 4,
+    "name": "First Aid and Medical",
     "keywords": [
       "first aid",
       "medical",
-      "injury"
+      "injury",
+      "trauma"
     ]
   },
   "head_27": {
     "hsse_area": 27,
+    "zone": 4,
     "name": "Crisis Management",
     "keywords": [
       "crisis",
       "command",
-      "incident command"
+      "incident command",
+      "continuity"
     ]
   },
   "head_28": {
     "hsse_area": 28,
+    "zone": 3,
     "name": "Chemical Safety",
     "keywords": [
       "chemical",
       "compatibility",
-      "reaction"
+      "reaction",
+      "coshh",
+      "sds"
     ]
   },
   "head_29": {
     "hsse_area": 29,
-    "name": "Toxicology",
+    "zone": 3,
+    "name": "Noise and Vibration",
     "keywords": [
-      "toxic",
-      "toxicity",
-      "dose"
+      "noise",
+      "vibration",
+      "decibel",
+      "hearing"
     ]
   },
   "head_30": {
     "hsse_area": 30,
-    "name": "Process Safety",
-    "keywords": [
-      "process safety",
-      "pressure",
-      "containment"
-    ]
-  },
-  "head_31": {
-    "hsse_area": 31,
-    "name": "Respiratory Protection",
-    "keywords": [
-      "respirator",
-      "fit test",
-      "airborne"
-    ]
-  },
-  "head_32": {
-    "hsse_area": 32,
-    "name": "Electrical Safety",
-    "keywords": [
-      "electrical",
-      "arc flash",
-      "energized"
-    ]
-  },
-  "head_33": {
-    "hsse_area": 33,
-    "name": "Working at Height",
-    "keywords": [
-      "height",
-      "fall",
-      "harness"
-    ]
-  },
-  "head_34": {
-    "hsse_area": 34,
-    "name": "Mechanical Safety",
-    "keywords": [
-      "mechanical",
-      "guarding",
-      "machine"
-    ]
-  },
-  "head_35": {
-    "hsse_area": 35,
-    "name": "Confined Space Safety",
-    "keywords": [
-      "confined space",
-      "oxygen",
-      "entry"
-    ]
-  },
-  "head_36": {
-    "hsse_area": 36,
-    "name": "Pressure Systems",
-    "keywords": [
-      "pressure",
-      "vessel",
-      "relief"
-    ]
-  },
-  "head_37": {
-    "hsse_area": 37,
-    "name": "Lifting and Rigging",
-    "keywords": [
-      "lifting",
-      "rigging",
-      "crane"
-    ]
-  },
-  "head_38": {
-    "hsse_area": 38,
+    "zone": 3,
     "name": "Radiation Safety",
     "keywords": [
       "radiation",
       "dose",
-      "ionizing"
+      "ionizing",
+      "nuclear"
+    ]
+  },
+  "head_31": {
+    "hsse_area": 31,
+    "zone": 3,
+    "name": "Biological Hazards",
+    "keywords": [
+      "biological",
+      "pathogen",
+      "infection",
+      "biohazard"
+    ]
+  },
+  "head_32": {
+    "hsse_area": 32,
+    "zone": 3,
+    "name": "Thermal Stress",
+    "keywords": [
+      "thermal",
+      "heat stress",
+      "cold",
+      "temperature"
+    ]
+  },
+  "head_33": {
+    "hsse_area": 33,
+    "zone": 3,
+    "name": "Electrical Safety",
+    "keywords": [
+      "electrical",
+      "arc flash",
+      "energized",
+      "voltage"
+    ]
+  },
+  "head_34": {
+    "hsse_area": 34,
+    "zone": 3,
+    "name": "Mechanical Safety",
+    "keywords": [
+      "mechanical",
+      "guarding",
+      "machine",
+      "rotating"
+    ]
+  },
+  "head_35": {
+    "hsse_area": 35,
+    "zone": 3,
+    "name": "Confined Space Safety",
+    "keywords": [
+      "confined space",
+      "oxygen",
+      "entry",
+      "atmospheric"
+    ]
+  },
+  "head_36": {
+    "hsse_area": 36,
+    "zone": 3,
+    "name": "Working at Height",
+    "keywords": [
+      "height",
+      "fall",
+      "harness",
+      "scaffolding"
+    ]
+  },
+  "head_37": {
+    "hsse_area": 37,
+    "zone": 3,
+    "name": "Lifting and Rigging",
+    "keywords": [
+      "lifting",
+      "rigging",
+      "crane",
+      "sling"
+    ]
+  },
+  "head_38": {
+    "hsse_area": 38,
+    "zone": 3,
+    "name": "Excavation and Trenching",
+    "keywords": [
+      "excavation",
+      "trenching",
+      "shoring",
+      "soil"
     ]
   },
   "head_39": {
     "hsse_area": 39,
-    "name": "Ergonomics",
+    "zone": 3,
+    "name": "Pressure Systems",
     "keywords": [
-      "ergonomic",
-      "musculoskeletal",
-      "posture"
+      "pressure",
+      "vessel",
+      "relief",
+      "containment"
     ]
   },
   "head_40": {
     "hsse_area": 40,
-    "name": "Industrial Hygiene",
-    "keywords": [
-      "hygiene",
-      "silica",
-      "exposure"
-    ]
-  },
-  "head_41": {
-    "hsse_area": 41,
+    "zone": 5,
     "name": "Occupational Health",
     "keywords": [
       "health",
       "occupational",
+      "surveillance",
       "screening"
+    ]
+  },
+  "head_41": {
+    "hsse_area": 41,
+    "zone": 5,
+    "name": "Industrial Hygiene",
+    "keywords": [
+      "hygiene",
+      "silica",
+      "exposure",
+      "twa",
+      "ih"
     ]
   },
   "head_42": {
     "hsse_area": 42,
+    "zone": 5,
     "name": "Waste Management",
     "keywords": [
       "waste",
       "disposal",
-      "segregation"
+      "segregation",
+      "hazardous waste"
     ]
   },
   "head_43": {
     "hsse_area": 43,
+    "zone": 5,
     "name": "Pollution Control",
     "keywords": [
       "pollution",
       "emission",
-      "spill"
+      "spill",
+      "effluent"
     ]
   },
   "head_44": {
     "hsse_area": 44,
-    "name": "Environmental Protection",
+    "zone": 5,
+    "name": "Sustainability",
     "keywords": [
+      "sustainability",
+      "carbon",
+      "esg",
       "environment",
-      "ecology",
-      "protection"
+      "ecology"
     ]
   },
   "head_45": {
     "hsse_area": 45,
-    "name": "Training Systems",
+    "zone": 2,
+    "name": "Safety Induction",
     "keywords": [
-      "training",
-      "competency",
-      "curriculum"
+      "induction",
+      "onboarding",
+      "site access",
+      "orientation"
     ]
   },
   "head_46": {
     "hsse_area": 46,
-    "name": "Communication",
+    "zone": 2,
+    "name": "Document Control",
     "keywords": [
-      "communication",
-      "handover",
-      "brief"
+      "document",
+      "procedure",
+      "revision",
+      "controlled"
     ]
   },
   "head_47": {
     "hsse_area": 47,
-    "name": "Human Factors",
+    "zone": 2,
+    "name": "Resource Management",
     "keywords": [
-      "human factors",
-      "fatigue",
-      "error"
+      "resource",
+      "manpower",
+      "staffing",
+      "availability"
     ]
   },
   "head_48": {
     "hsse_area": 48,
-    "name": "Performance Indicators",
+    "zone": 6,
+    "name": "Lagging Indicators",
     "keywords": [
-      "kpi",
-      "metric",
-      "performance"
+      "lagging",
+      "trir",
+      "ltir",
+      "recordable",
+      "severity rate"
     ]
   },
   "head_49": {
     "hsse_area": 49,
-    "name": "Behavior Based Safety",
+    "zone": 6,
+    "name": "Leading Indicators",
     "keywords": [
-      "behavior",
-      "observation",
-      "intervention"
+      "leading",
+      "proactive",
+      "near miss",
+      "observation"
     ]
   },
   "head_50": {
     "hsse_area": 50,
-    "name": "Safety Performance",
+    "zone": 6,
+    "name": "Safety Culture Index",
     "keywords": [
-      "trir",
-      "lagging",
-      "leading"
+      "culture",
+      "maturity",
+      "climate",
+      "engagement"
     ]
   },
   "head_51": {
     "hsse_area": 51,
+    "zone": 6,
     "name": "Construction Safety",
     "keywords": [
       "construction",
       "site",
-      "excavation"
+      "civil",
+      "building"
     ]
   },
   "head_52": {
     "hsse_area": 52,
+    "zone": 6,
     "name": "Mining Safety",
     "keywords": [
       "mining",
       "pit",
-      "underground"
+      "underground",
+      "tunneling"
     ]
   },
   "head_53": {
     "hsse_area": 53,
+    "zone": 6,
     "name": "Oil and Gas Safety",
     "keywords": [
       "offshore",
       "drilling",
-      "hydrocarbon"
+      "hydrocarbon",
+      "oil",
+      "gas"
     ]
   },
   "head_54": {
     "hsse_area": 54,
-    "name": "Manufacturing Safety",
+    "zone": 6,
+    "name": "Marine Safety",
     "keywords": [
-      "manufacturing",
-      "production",
-      "plant"
+      "marine",
+      "vessel",
+      "maritime",
+      "navigation"
     ]
   },
   "head_55": {
     "hsse_area": 55,
-    "name": "Logistics Safety",
+    "zone": 6,
+    "name": "Aviation Safety",
     "keywords": [
-      "warehouse",
-      "logistics",
-      "material handling"
+      "aviation",
+      "helideck",
+      "helicopter",
+      "air"
     ]
   },
   "head_56": {
     "hsse_area": 56,
-    "name": "Maritime Safety",
+    "zone": 6,
+    "name": "Logistics and Warehousing",
     "keywords": [
-      "marine",
-      "vessel",
-      "navigation"
+      "warehouse",
+      "logistics",
+      "material handling",
+      "forklift"
     ]
   },
   "head_57": {
     "hsse_area": 57,
+    "zone": 6,
     "name": "Transportation Safety",
     "keywords": [
       "transport",
       "vehicle",
-      "road"
+      "road",
+      "fleet"
     ]
   },
   "head_58": {
     "hsse_area": 58,
-    "name": "Security and Protection",
+    "zone": 6,
+    "name": "Manufacturing Safety",
     "keywords": [
-      "security",
-      "threat",
-      "access control"
+      "manufacturing",
+      "production",
+      "plant",
+      "production line"
     ]
   },
   "head_59": {
     "hsse_area": 59,
-    "name": "Business Continuity",
+    "zone": 4,
+    "name": "Physical Security",
     "keywords": [
-      "continuity",
-      "resilience",
-      "recovery"
+      "security",
+      "threat",
+      "access control",
+      "intrusion"
     ]
   },
   "head_60": {
     "hsse_area": 60,
-    "name": "Data and AI Assurance",
+    "zone": 6,
+    "name": "Mega-Scale Integration",
     "keywords": [
-      "ai",
-      "data quality",
-      "hallucination"
+      "mega",
+      "integration",
+      "synthesis",
+      "master",
+      "system"
     ]
   }
 }
