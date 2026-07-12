@@ -13,6 +13,8 @@ Commands:
     lifting     Lifting safety factor
     incident    Combined failure probability
     verify      Deterministic verification check
+    train       Open training artifact build from dataset folders
+    evaluate    Benchmark evaluation report generation
 
 Run `python -m src.math_engine.cli --help` for full usage.
 
@@ -113,6 +115,30 @@ def cmd_verify(args: argparse.Namespace) -> None:
     print(f"{'=' * 60}\n")
 
 
+def cmd_train(args: argparse.Namespace) -> None:
+    """Run open training flow and save model artifact."""
+    from src.hsse_transformer.open_framework import train_open_framework
+
+    result = train_open_framework(args.dataset_root, args.output)
+    print(f"\n{'=' * 60}")
+    print("  Open Training Artifact")
+    print(f"{'=' * 60}")
+    print(json.dumps(result, indent=2))
+    print(f"{'=' * 60}\n")
+
+
+def cmd_evaluate(args: argparse.Namespace) -> None:
+    """Run benchmark evaluation flow and save report."""
+    from src.hsse_transformer.open_framework import run_benchmark_evaluation
+
+    result = run_benchmark_evaluation(args.dataset_root, args.output)
+    print(f"\n{'=' * 60}")
+    print("  Benchmark Evaluation Report")
+    print(f"{'=' * 60}")
+    print(json.dumps(result, indent=2))
+    print(f"{'=' * 60}\n")
+
+
 def build_parser() -> argparse.ArgumentParser:
     """Build and return the CLI argument parser."""
     parser = argparse.ArgumentParser(
@@ -130,6 +156,10 @@ def build_parser() -> argparse.ArgumentParser:
             "  python -m src.math_engine.cli incident "
             "--probabilities 0.1,0.05,0.02 --threshold 0.1\n"
             "  python -m src.math_engine.cli verify --oxygen-percent 18.0\n"
+            "  python -m src.math_engine.cli train --dataset-root ./dataset "
+            "--output ./artifacts/open_model.json\n"
+            "  python -m src.math_engine.cli evaluate --dataset-root ./dataset "
+            "--output ./artifacts/benchmark_report.json\n"
         ),
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -246,6 +276,40 @@ def build_parser() -> argparse.ArgumentParser:
         help="Risk score for extreme risk check",
     )
     ver_parser.set_defaults(func=cmd_verify)
+
+    # -----------------------------------------------------------------------
+    # train subcommand
+    # -----------------------------------------------------------------------
+    train_parser = subparsers.add_parser(
+        "train",
+        help="Build open training artifact from dataset folder structure",
+    )
+    train_parser.add_argument(
+        "--dataset-root", required=True,
+        help="Absolute or relative path to dataset root containing 01..04 folders",
+    )
+    train_parser.add_argument(
+        "--output", required=True,
+        help="Output JSON path for generated training artifact",
+    )
+    train_parser.set_defaults(func=cmd_train)
+
+    # -----------------------------------------------------------------------
+    # evaluate subcommand
+    # -----------------------------------------------------------------------
+    eval_parser = subparsers.add_parser(
+        "evaluate",
+        help="Run benchmark scoring and generate proof report",
+    )
+    eval_parser.add_argument(
+        "--dataset-root", required=True,
+        help="Absolute or relative path to dataset root containing 01..04 folders",
+    )
+    eval_parser.add_argument(
+        "--output", required=True,
+        help="Output JSON path for generated benchmark report",
+    )
+    eval_parser.set_defaults(func=cmd_evaluate)
 
     return parser
 
