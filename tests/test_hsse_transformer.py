@@ -168,4 +168,10 @@ class TestOpenFramework:
         report = run_benchmark_evaluation(dataset_root, output)
         assert report["total_cases"] == 3
         assert "suite_scores" in report
+        assert "validation_requirements" in report
+        assert report["validation_requirements"]["hazard_detection_verified"] is True
+        assert report["validation_requirements"]["uncertainty_handled_safely"] is True
+        assert report["validation_requirements"]["expert_comparison_completed"] is False
+        assert report["deployment_ready"] is False
+        assert "information_capacity_tracking" in report
         assert output.exists()

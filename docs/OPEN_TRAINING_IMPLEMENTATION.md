@@ -40,6 +40,30 @@ The evaluation report includes:
 - expert agreement rate
 - deployment readiness gate
 
+## Validation Rules (Implemented in Report)
+
+`run_benchmark_evaluation()` now emits `validation_requirements` with the exact validation gates:
+
+- `hazard_detection_verified`
+- `safety_rules_enforced`
+- `domain_reasoning_correct`
+- `multi_risk_analysis_verified`
+- `uncertainty_handled_safely`
+- `expert_comparison_completed`
+- `decisions_traceable_with_evidence`
+
+The system is marked deployment-ready only when all above are true and accuracy thresholds are met.
+
+## Information Theory and Logic-Gating Trace
+
+The report includes an `information_capacity_tracking` section that tracks:
+
+- S/N proxy from benchmark outcomes
+- Shannon-Hartley expression: `C = B * log2(1 + S/N)`
+- explicit note that measured telemetry is required for production channel-capacity proof
+
+This keeps the research framing while avoiding unsupported proof claims.
+
 ## Deployment-Readiness Gate
 
 The framework marks `deployment_ready=true` only when all gates pass:

@@ -275,6 +275,13 @@ def run_benchmark_evaluation(
     expert_cases = 0
     expert_matches = 0
     critical_failures = 0
+    suite_labels = {
+        "unsafe_detection": "hazard_detection_verified",
+        "no_guessing": "uncertainty_handled_safely",
+        "technical_selection": "domain_reasoning_correct",
+        "multi_risk": "multi_risk_analysis_verified",
+        "expert_comparison": "expert_comparison_completed",
+    }
 
     evaluations = []
     for record in records:
@@ -330,6 +337,37 @@ def run_benchmark_evaluation(
         )
 
     expert_agreement_rate = (expert_matches / expert_cases) if expert_cases else None
+    suite_rates = {
+        suite: (suite_pass.get(suite, 0) / suite_totals[suite])
+        for suite in suite_totals
+    }
+
+    hazard_detection_verified = suite_rates.get("unsafe_detection", 0.0) >= 1.0
+    safety_rules_enforced = critical_failures == 0
+    domain_reasoning_correct = suite_rates.get("technical_selection", 0.0) >= 0.9
+    multi_risk_analysis_verified = suite_rates.get("multi_risk", 0.0) >= 1.0
+    uncertainty_handled_safely = (
+        no_guessing_failures == 0 and suite_rates.get("no_guessing", 1.0) >= 1.0
+    )
+    expert_comparison_completed = (
+        expert_cases > 0 and (expert_agreement_rate is not None and expert_agreement_rate >= 0.9)
+    )
+    decisions_traceable_with_evidence = all(bool(record.evidence_sources) for record in records)
+
+    validation_requirements = {
+        "hazard_detection_verified": hazard_detection_verified,
+        "safety_rules_enforced": safety_rules_enforced,
+        "domain_reasoning_correct": domain_reasoning_correct,
+        "multi_risk_analysis_verified": multi_risk_analysis_verified,
+        "uncertainty_handled_safely": uncertainty_handled_safely,
+        "expert_comparison_completed": expert_comparison_completed,
+        "decisions_traceable_with_evidence": decisions_traceable_with_evidence,
+    }
+
+    # Simple reporting surface for information quality tracking.
+    # Inputs can be replaced by measured values from production ingestion pipelines.
+    signal_to_noise_ratio = float(total) / max(1.0, float(no_guessing_failures + critical_failures))
+
     report = {
         "total_cases": total,
         "decision_accuracy": (correct_decisions / total) if total else 0.0,
@@ -342,13 +380,18 @@ def run_benchmark_evaluation(
                 "passed": suite_pass.get(suite, 0),
                 "total": suite_totals[suite],
                 "pass_rate": suite_pass.get(suite, 0) / suite_totals[suite],
+                "validation_label": suite_labels.get(suite),
             }
             for suite in suite_totals
         },
+        "validation_requirements": validation_requirements,
+        "information_capacity_tracking": {
+            "signal_to_noise_ratio_proxy": signal_to_noise_ratio,
+            "shannon_hartley_expression": "C = B * log2(1 + S/N)",
+            "note": "Formula tracked for research; real B, S, N inputs require measured ingestion telemetry.",
+        },
         "deployment_ready": (
-            critical_failures == 0
-            and no_guessing_failures == 0
-            and ((expert_agreement_rate is None) or expert_agreement_rate >= 0.9)
+            all(validation_requirements.values())
             and (correct_decisions / total if total else 0.0) >= 0.9
             and (domain_hits / total if total else 0.0) >= 0.85
         ),
