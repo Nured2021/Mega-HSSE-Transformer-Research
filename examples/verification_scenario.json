@@ -1,0 +1,29 @@
+{
+  "scenario": "Confined space entry — oxygen deficiency verification",
+  "description": "Deterministic verification gate check for a confined space entry request. Demonstrates the Logic Gate (G) that enforces safety constraints regardless of AI confidence.",
+  "hsse_area": "Item 35: Confined Space Safety, Item 14: Permit to Work, Item 40: Industrial Hygiene",
+  "inputs": {
+    "oxygen_percent": 18.0,
+    "context": "Pre-entry atmospheric check in a storage tank. Gas monitor reads 18% O2."
+  },
+  "expected_verification_output": [
+    {
+      "rule_id": "oxygen_threshold",
+      "violated": true,
+      "decision": "ENTRY DENIED — Unsafe Atmospheric Condition",
+      "reason": "Oxygen concentration is below the minimum safe level of 19.5%. Entry is prohibited until atmospheric conditions are corrected, monitored, and a valid Permit to Work is issued.",
+      "context_key": "oxygen_percent",
+      "context_value": 18.0,
+      "threshold": 19.5,
+      "standard": "OSHA 1910.146 — Permit-Required Confined Spaces"
+    }
+  ],
+  "transformer_reasoning_chain": "RC = Softmax(QKᵀ/√dk) · V · Logic Gate(G) → G blocks entry",
+  "cli_command": "python -m src.math_engine.cli verify --oxygen-percent 18.0",
+  "safe_example": {
+    "description": "Safe oxygen level — entry permitted (pending other checks)",
+    "cli_command": "python -m src.math_engine.cli verify --oxygen-percent 20.9",
+    "expected_violated": false
+  },
+  "research_note": "Foundation output — this represents one rule in the verification layer. Full 60-area rule coverage is pending."
+}

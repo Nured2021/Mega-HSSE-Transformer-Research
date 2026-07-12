@@ -1,0 +1,19 @@
+{
+  "scenario": "Chemical exposure during painting operation",
+  "description": "TWA calculation for a worker exposed to solvent vapours during two shifts of different duration",
+  "hsse_area": "Item 40: Industrial Hygiene, Item 12: Regulatory Compliance",
+  "inputs": {
+    "concentrations": [150.0, 80.0],
+    "durations": [3.0, 5.0],
+    "units": "ppm",
+    "hazard": "Solvent vapour (example — replace with actual OEL for substance)"
+  },
+  "expected_outputs": {
+    "twa_value": 106.25,
+    "total_hours": 8.0,
+    "formula": "TWA = Σ(Ci × Ti) / 8"
+  },
+  "oel_note": "Compare twa_value against applicable OEL/PEL/TLV for the specific substance. If TWA >= OEL, controls required.",
+  "cli_command": "python -m src.math_engine.cli exposure --concentrations 150,80 --durations 3,5",
+  "research_note": "Foundation output — validation against occupational hygiene benchmarks pending"
+}
