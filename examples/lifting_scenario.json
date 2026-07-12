@@ -1,0 +1,23 @@
+{
+  "scenario": "Critical offshore crane lift — high wind condition",
+  "description": "Safety factor assessment for an offshore crane lift. Reference scenario from Mega HSSE Transformer concept document.",
+  "hsse_area": "Item 37: Lifting and Rigging, Item 53: Oil and Gas Safety, Item 14: Permit to Work",
+  "inputs": {
+    "breaking_strength": 250,
+    "applied_load": 50,
+    "dynamic_factor": 1.5,
+    "minimum_sf": 5.0,
+    "units": "tonnes",
+    "context": "Offshore platform crane lift, high wind (40 km/h), critical lift classification"
+  },
+  "expected_outputs": {
+    "safety_factor": 3.3333333333333335,
+    "status": "FAIL",
+    "minimum_required": 5.0,
+    "decision": "STOP WORK AUTHORITY — Insufficient Safety Factor",
+    "formula": "SF = Breaking_Strength / (Applied_Load × Dynamic_Factor)"
+  },
+  "calculation_trace": "SF = 250 / (50 × 1.5) = 250 / 75 = 3.33 < 5.0 → FAIL",
+  "cli_command": "python -m src.math_engine.cli lifting --breaking-strength 250 --applied-load 50 --dynamic-factor 1.5",
+  "research_note": "Foundation output — validation against engineering calculations and expert review pending"
+}

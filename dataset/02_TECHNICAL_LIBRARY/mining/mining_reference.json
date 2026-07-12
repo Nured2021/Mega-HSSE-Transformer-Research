@@ -1,0 +1,24 @@
+{
+  "source_type": "mining_safety_reference",
+  "hsse_areas": [52, 35, 25, 38],
+  "references": [
+    {
+      "reference": "MSHA 30 CFR Part 57",
+      "title": "Safety and Health Standards — Underground Metal and Nonmetal Mines",
+      "key_requirements": [
+        "Mandatory pre-shift examination of underground workings",
+        "Methane monitoring required in all underground coal mines",
+        "Ground control plan required — roof support and rib control",
+        "Refuge chambers required for deep underground operations",
+        "Atmospheric monitoring for oxygen, methane, CO, and H2S"
+      ],
+      "hsse_areas": [52, 35, 25]
+    },
+    {
+      "reference": "ILO Safety and Health in Mines Convention (No. 176)",
+      "title": "International Mining Safety Convention",
+      "summary": "Sets international minimum standards for safety and health in mines. Requires risk assessment, training, inspection, and reporting systems for mining operations.",
+      "hsse_areas": [52, 3]
+    }
+  ]
+}

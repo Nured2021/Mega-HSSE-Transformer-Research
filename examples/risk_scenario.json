@@ -1,0 +1,20 @@
+{
+  "scenario": "High-risk confined space entry assessment",
+  "description": "Fine-Kinney risk assessment for a confined space entry operation in an oil & gas facility",
+  "hsse_area": "Item 35: Confined Space Safety, Item 7: Risk Assessment",
+  "inputs": {
+    "probability": 6,
+    "severity": 15,
+    "exposure": 3,
+    "control_efficiency": 0.8
+  },
+  "expected_outputs": {
+    "initial_risk": 270.0,
+    "residual_risk": 54.0,
+    "risk_level": "medium",
+    "formula_initial": "Ri = P × S × E",
+    "formula_residual": "Rr = Ri × (1 − ε)"
+  },
+  "cli_command": "python -m src.math_engine.cli risk --probability 6 --severity 15 --exposure 3 --control-efficiency 0.8",
+  "research_note": "Foundation output — validation against expert review pending"
+}

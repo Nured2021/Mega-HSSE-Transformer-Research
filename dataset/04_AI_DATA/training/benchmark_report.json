@@ -1,0 +1,466 @@
+{
+  "total_cases": 23,
+  "decision_accuracy": 1.0,
+  "domain_selection_accuracy": 1.0,
+  "hallucination_rate": 0.0,
+  "critical_failures": 0,
+  "expert_agreement_rate": 1.0,
+  "suite_scores": {
+    "unsafe_detection": {
+      "passed": 8,
+      "total": 8,
+      "pass_rate": 1.0,
+      "validation_label": "hazard_detection_verified"
+    },
+    "no_guessing": {
+      "passed": 3,
+      "total": 3,
+      "pass_rate": 1.0,
+      "validation_label": "uncertainty_handled_safely"
+    },
+    "technical_selection": {
+      "passed": 6,
+      "total": 6,
+      "pass_rate": 1.0,
+      "validation_label": "domain_reasoning_correct"
+    },
+    "multi_risk": {
+      "passed": 3,
+      "total": 3,
+      "pass_rate": 1.0,
+      "validation_label": "multi_risk_analysis_verified"
+    },
+    "expert_comparison": {
+      "passed": 3,
+      "total": 3,
+      "pass_rate": 1.0,
+      "validation_label": "expert_comparison_completed"
+    }
+  },
+  "validation_requirements": {
+    "hazard_detection_verified": true,
+    "safety_rules_enforced": true,
+    "domain_reasoning_correct": true,
+    "multi_risk_analysis_verified": true,
+    "uncertainty_handled_safely": true,
+    "expert_comparison_completed": true,
+    "decisions_traceable_with_evidence": true
+  },
+  "information_capacity_tracking": {
+    "signal_to_noise_ratio_proxy": 23.0,
+    "shannon_hartley_expression": "C = B * log2(1 + S/N)",
+    "note": "Formula tracked for research; real B, S, N inputs require measured ingestion telemetry."
+  },
+  "deployment_ready": true,
+  "evaluations": [
+    {
+      "scenario_id": "unsafe_oxygen_001",
+      "suite": "unsafe_detection",
+      "predicted_heads": [
+        "head_35"
+      ],
+      "required_heads": [
+        "head_35"
+      ],
+      "domain_ok": true,
+      "decision": "ENTRY DENIED \u2014 Unsafe Atmospheric Condition",
+      "expected_decision": "ENTRY DENIED \u2014 Unsafe Atmospheric Condition",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "no_guess_chem_001",
+      "suite": "no_guessing",
+      "predicted_heads": [
+        "head_28"
+      ],
+      "required_heads": [
+        "head_28"
+      ],
+      "domain_ok": true,
+      "decision": "INSUFFICIENT INFORMATION \u2014 Cannot determine safe decision without verified evidence",
+      "expected_decision": "INSUFFICIENT INFORMATION \u2014 Cannot determine safe decision without verified evidence",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "domain_silica_001",
+      "suite": "technical_selection",
+      "predicted_heads": [
+        "head_19",
+        "head_06",
+        "head_18",
+        "head_41"
+      ],
+      "required_heads": [
+        "head_41",
+        "head_19"
+      ],
+      "domain_ok": true,
+      "decision": "Apply industrial hygiene exposure controls and respiratory protection before work continues",
+      "expected_decision": "Apply industrial hygiene exposure controls and respiratory protection before work continues",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "multi_risk_lift_001",
+      "suite": "multi_risk",
+      "predicted_heads": [
+        "head_14",
+        "head_17",
+        "head_37"
+      ],
+      "required_heads": [
+        "head_37",
+        "head_14",
+        "head_17"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK AUTHORITY \u2014 Insufficient Safety Factor",
+      "expected_decision": "STOP WORK AUTHORITY \u2014 Insufficient Safety Factor",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "expert_compare_risk_001",
+      "suite": "expert_comparison",
+      "predicted_heads": [
+        "head_05"
+      ],
+      "required_heads": [
+        "head_05"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 Extreme Risk Level Detected",
+      "expected_decision": "STOP WORK \u2014 Extreme Risk Level Detected",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "reason_multi_001",
+      "suite": "multi_risk",
+      "predicted_heads": [
+        "head_25",
+        "head_35",
+        "head_14",
+        "head_39",
+        "head_53"
+      ],
+      "required_heads": [
+        "head_25",
+        "head_35",
+        "head_14"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 Immediate evacuation required: 8% LEL in confined space with personnel inside; no permit; fire and asphyxiation risk. Evacuate and do not re-enter until atmosphere is cleared and permit issued.",
+      "expected_decision": "STOP WORK \u2014 Immediate evacuation required: 8% LEL in confined space with personnel inside; no permit; fire and asphyxiation risk. Evacuate and do not re-enter until atmosphere is cleared and permit issued.",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "reason_expert_001",
+      "suite": "expert_comparison",
+      "predicted_heads": [
+        "head_05",
+        "head_51"
+      ],
+      "required_heads": [
+        "head_05"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 Extreme Risk Level Detected",
+      "expected_decision": "STOP WORK \u2014 Extreme Risk Level Detected",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "reason_domain_001",
+      "suite": "technical_selection",
+      "predicted_heads": [
+        "head_41",
+        "head_19",
+        "head_06"
+      ],
+      "required_heads": [
+        "head_41",
+        "head_19"
+      ],
+      "domain_ok": true,
+      "decision": "CORRECTIVE ACTION REQUIRED \u2014 TWA Exceeds Occupational Exposure Limit",
+      "expected_decision": "CORRECTIVE ACTION REQUIRED \u2014 TWA Exceeds Occupational Exposure Limit",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "reason_no_guess_001",
+      "suite": "no_guessing",
+      "predicted_heads": [
+        "head_35",
+        "head_06",
+        "head_28",
+        "head_52"
+      ],
+      "required_heads": [
+        "head_28",
+        "head_35"
+      ],
+      "domain_ok": true,
+      "decision": "INSUFFICIENT INFORMATION \u2014 Cannot determine safe decision without verified evidence",
+      "expected_decision": "INSUFFICIENT INFORMATION \u2014 Cannot determine safe decision without verified evidence",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "reason_multi_002",
+      "suite": "multi_risk",
+      "predicted_heads": [
+        "head_15",
+        "head_12",
+        "head_14",
+        "head_33",
+        "head_46"
+      ],
+      "required_heads": [
+        "head_15",
+        "head_33"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 All energy sources must be isolated and verified at zero energy state before cabinet is opened; LOTO must cover electrical, pneumatic, and stored energy sources",
+      "expected_decision": "STOP WORK \u2014 All energy sources must be isolated and verified at zero energy state before cabinet is opened; LOTO must cover electrical, pneumatic, and stored energy sources",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "reason_expert_002",
+      "suite": "expert_comparison",
+      "predicted_heads": [
+        "head_37",
+        "head_53"
+      ],
+      "required_heads": [
+        "head_37"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK AUTHORITY \u2014 Insufficient Safety Factor",
+      "expected_decision": "STOP WORK AUTHORITY \u2014 Insufficient Safety Factor",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "reason_no_guess_002",
+      "suite": "no_guessing",
+      "predicted_heads": [
+        "head_39",
+        "head_13",
+        "head_34",
+        "head_46",
+        "head_54"
+      ],
+      "required_heads": [
+        "head_39"
+      ],
+      "domain_ok": true,
+      "decision": "INSUFFICIENT INFORMATION \u2014 Cannot determine safe decision without verified evidence",
+      "expected_decision": "INSUFFICIENT INFORMATION \u2014 Cannot determine safe decision without verified evidence",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "reason_domain_002",
+      "suite": "technical_selection",
+      "predicted_heads": [
+        "head_18",
+        "head_41",
+        "head_51"
+      ],
+      "required_heads": [
+        "head_41",
+        "head_18"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 Asbestos survey required before any disturbance of suspect materials in buildings built before 1990; potential asbestos-containing materials must be tested before demolition proceeds",
+      "expected_decision": "STOP WORK \u2014 Asbestos survey required before any disturbance of suspect materials in buildings built before 1990; potential asbestos-containing materials must be tested before demolition proceeds",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "eval_constr_001",
+      "suite": "unsafe_detection",
+      "predicted_heads": [
+        "head_36",
+        "head_19",
+        "head_51"
+      ],
+      "required_heads": [
+        "head_51",
+        "head_36"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 Fall protection is required at any height above 1.8 m on construction sites; install edge protection or provide full body harness with rated anchor before work resumes",
+      "expected_decision": "STOP WORK \u2014 Fall protection is required at any height above 1.8 m on construction sites; install edge protection or provide full body harness with rated anchor before work resumes",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "eval_mining_001",
+      "suite": "unsafe_detection",
+      "predicted_heads": [
+        "head_52",
+        "head_25",
+        "head_53"
+      ],
+      "required_heads": [
+        "head_52",
+        "head_25"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 Methane exceeds 1% threshold for mandatory evacuation of section; withdraw workers, increase ventilation, retest before reentry",
+      "expected_decision": "STOP WORK \u2014 Methane exceeds 1% threshold for mandatory evacuation of section; withdraw workers, increase ventilation, retest before reentry",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "eval_oilgas_001",
+      "suite": "unsafe_detection",
+      "predicted_heads": [
+        "head_53",
+        "head_24",
+        "head_25"
+      ],
+      "required_heads": [
+        "head_53",
+        "head_25"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 H2S detected above 1 ppm action level without escape sets; evacuate affected area; muster headcount; deploy H2S control measures before return",
+      "expected_decision": "STOP WORK \u2014 H2S detected above 1 ppm action level without escape sets; evacuate affected area; muster headcount; deploy H2S control measures before return",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "eval_marine_001",
+      "suite": "unsafe_detection",
+      "predicted_heads": [
+        "head_54",
+        "head_24",
+        "head_36",
+        "head_39"
+      ],
+      "required_heads": [
+        "head_54",
+        "head_24"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 Man Overboard Emergency: throw life ring immediately; post lookout to maintain visual contact; manoeuvre vessel for recovery; transmit MAYDAY on VHF Channel 16; deploy rescue boat",
+      "expected_decision": "STOP WORK \u2014 Man Overboard Emergency: throw life ring immediately; post lookout to maintain visual contact; manoeuvre vessel for recovery; transmit MAYDAY on VHF Channel 16; deploy rescue boat",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "eval_aviation_001",
+      "suite": "unsafe_detection",
+      "predicted_heads": [
+        "head_55",
+        "head_25",
+        "head_53",
+        "head_60"
+      ],
+      "required_heads": [
+        "head_55"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 Helideck red status: all helicopter landings prohibited until firefighting foam system is restored to full serviceability and rescue net is reinstalled",
+      "expected_decision": "STOP WORK \u2014 Helideck red status: all helicopter landings prohibited until firefighting foam system is restored to full serviceability and rescue net is reinstalled",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "eval_logistic_001",
+      "suite": "unsafe_detection",
+      "predicted_heads": [
+        "head_56",
+        "head_42"
+      ],
+      "required_heads": [
+        "head_56"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 Implement pedestrian and forklift segregation immediately: physical barriers, floor markings, audible warnings, and speed limiters required before operations resume",
+      "expected_decision": "STOP WORK \u2014 Implement pedestrian and forklift segregation immediately: physical barriers, floor markings, audible warnings, and speed limiters required before operations resume",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "eval_transport_001",
+      "suite": "technical_selection",
+      "predicted_heads": [
+        "head_01",
+        "head_57"
+      ],
+      "required_heads": [
+        "head_57"
+      ],
+      "domain_ok": true,
+      "decision": "Stop vehicle immediately: driver is in violation of hours of service regulations; take mandatory rest before journey continues; review journey management plan compliance",
+      "expected_decision": "Stop vehicle immediately: driver is in violation of hours of service regulations; take mandatory rest before journey continues; review journey management plan compliance",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "eval_manuf_001",
+      "suite": "unsafe_detection",
+      "predicted_heads": [
+        "head_34",
+        "head_58"
+      ],
+      "required_heads": [
+        "head_58",
+        "head_34"
+      ],
+      "domain_ok": true,
+      "decision": "STOP WORK \u2014 Immediate machine guarding is required at point of operation; install two-hand controls, barrier guard, or light curtain before production resumes",
+      "expected_decision": "STOP WORK \u2014 Immediate machine guarding is required at point of operation; install two-hand controls, barrier guard, or light curtain before production resumes",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "eval_waste_001",
+      "suite": "technical_selection",
+      "predicted_heads": [
+        "head_42",
+        "head_06",
+        "head_28",
+        "head_43",
+        "head_53"
+      ],
+      "required_heads": [
+        "head_42",
+        "head_43"
+      ],
+      "domain_ok": true,
+      "decision": "Stop disposal: hazardous wastes must be segregated by compatibility; hazardous waste manifest required; licensed hazardous waste contractor must be engaged for disposal",
+      "expected_decision": "Stop disposal: hazardous wastes must be segregated by compatibility; hazardous waste manifest required; licensed hazardous waste contractor must be engaged for disposal",
+      "decision_ok": true,
+      "suite_ok": true
+    },
+    {
+      "scenario_id": "eval_occ_health_001",
+      "suite": "technical_selection",
+      "predicted_heads": [
+        "head_40",
+        "head_13",
+        "head_26",
+        "head_41"
+      ],
+      "required_heads": [
+        "head_40",
+        "head_41"
+      ],
+      "domain_ok": true,
+      "decision": "Immediate response: remove affected workers from silica exposure pending specialist review; conduct full industrial hygiene re-survey; review and upgrade respiratory protection and engineering controls; notify regulator per local reporting requirements",
+      "expected_decision": "Immediate response: remove affected workers from silica exposure pending specialist review; conduct full industrial hygiene re-survey; review and upgrade respiratory protection and engineering controls; notify regulator per local reporting requirements",
+      "decision_ok": true,
+      "suite_ok": true
+    }
+  ]
+}

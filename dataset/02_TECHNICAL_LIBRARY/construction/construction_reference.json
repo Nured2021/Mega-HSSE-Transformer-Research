@@ -1,0 +1,37 @@
+{
+  "source_type": "construction_safety_reference",
+  "hsse_areas": [51, 36, 37, 38, 14, 16],
+  "references": [
+    {
+      "reference": "OSHA 29 CFR 1926 Subpart R",
+      "title": "Steel Erection",
+      "key_requirements": [
+        "100% fall protection at 2 stories or 9.1m",
+        "Safety decking required to be installed below work",
+        "Connectors must have fall protection when working 2+ stories above lower level"
+      ],
+      "hsse_areas": [51, 36]
+    },
+    {
+      "reference": "OSHA 29 CFR 1926 Subpart P",
+      "title": "Excavations",
+      "key_requirements": [
+        "Competent person must classify soil before excavation",
+        "Shoring, sloping, or shielding required for excavations > 1.5m",
+        "Daily inspection required by competent person",
+        "Ladder access required for trenches > 1.2m deep",
+        "Surface water and groundwater must be controlled"
+      ],
+      "critical_thresholds": {
+        "minimum_depth_requiring_protection_m": 1.5,
+        "minimum_depth_requiring_ladder_m": 1.2
+      },
+      "hsse_areas": [38]
+    },
+    {
+      "reference": "ILO C167 — Safety and Health in Construction Convention",
+      "title": "International Construction Safety Convention",
+      "hsse_areas": [51, 3]
+    }
+  ]
+}

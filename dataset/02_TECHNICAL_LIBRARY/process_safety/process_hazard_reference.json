@@ -1,0 +1,31 @@
+{
+  "source_type": "process_safety_reference",
+  "hsse_areas": [25, 28, 39, 7],
+  "methodologies": [
+    {
+      "name": "HAZOP (Hazard and Operability Study)",
+      "standard": "IEC 61882",
+      "summary": "Systematic technique for identifying potential hazards and operability problems in process plant. Uses guide words (MORE, LESS, NO, REVERSE, OTHER THAN) applied to process parameters.",
+      "applications": ["chemical plants", "oil refineries", "petrochemical facilities"],
+      "hsse_areas": [28, 39, 25]
+    },
+    {
+      "name": "LOPA (Layer of Protection Analysis)",
+      "standard": "IEC 61511; CCPS Guidelines",
+      "summary": "Semi-quantitative risk analysis method that assesses independent protection layers (IPL) to determine whether risk is reduced to tolerable level. Used to determine SIL requirements.",
+      "hsse_areas": [5, 25, 39]
+    },
+    {
+      "name": "Bowtie Analysis",
+      "standard": "No single standard; based on barrier-based risk management",
+      "summary": "Visual risk assessment tool showing causal factors on left (fault tree) and consequences on right (event tree) connected through a top event. Barriers shown as controls.",
+      "hsse_areas": [5, 21, 24]
+    },
+    {
+      "name": "Fire and Explosion Index (F&EI)",
+      "standard": "Dow Chemical Fire and Explosion Index Guide (7th Ed.)",
+      "summary": "Quantitative hazard ranking index for fire, explosion, and reactivity hazards in chemical process operations.",
+      "hsse_areas": [25, 28]
+    }
+  ]
+}

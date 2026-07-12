@@ -1,0 +1,10 @@
+# Mega HSSE Transformer — Python Dependencies
+#
+# Minimal dependencies for the research foundation.
+# The math engine uses only the Python standard library.
+# pytest is required for running the test suite.
+#
+# Research Status: Foundation Built — Validation Pending
+
+# Testing
+pytest>=7.0.0

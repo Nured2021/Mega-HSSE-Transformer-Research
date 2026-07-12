@@ -1,0 +1,14 @@
+{
+  "library": "02_TECHNICAL_LIBRARY",
+  "description": "Engineering reference manuals, chemical safety data, process safety methodologies, occupational hygiene limits, and industry-specific technical references",
+  "version": "1.0.0",
+  "files": [
+    {"path": "engineering/structural_reference.json", "hsse_areas": [37, 39, 36, 34]},
+    {"path": "chemical_safety/chemical_reference.json", "hsse_areas": [28, 25, 43]},
+    {"path": "process_safety/process_hazard_reference.json", "hsse_areas": [25, 28, 39, 7]},
+    {"path": "occupational_hygiene/oel_table.json", "hsse_areas": [41, 29, 30, 40]},
+    {"path": "mining/mining_reference.json", "hsse_areas": [52, 35, 25, 38]},
+    {"path": "construction/construction_reference.json", "hsse_areas": [51, 36, 37, 38, 14, 16]},
+    {"path": "oil_gas/oilgas_reference.json", "hsse_areas": [53, 25, 28, 35, 37, 54, 55]}
+  ]
+}

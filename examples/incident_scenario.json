@@ -1,0 +1,25 @@
+{
+  "scenario": "Multi-barrier failure probability — process safety system",
+  "description": "Failure probability calculation for a system with three independent safety barriers. Models the probability that at least one barrier fails.",
+  "hsse_area": "Item 20: Incident Investigation, Item 21: Root Cause Analysis, Item 22: CAPA",
+  "inputs": {
+    "probabilities": [0.1, 0.05, 0.02],
+    "threshold": 0.1,
+    "components": [
+      "Primary pressure relief valve",
+      "Secondary isolation valve",
+      "Emergency shutdown system"
+    ]
+  },
+  "expected_outputs": {
+    "combined_probability": 0.1621,
+    "status": "EXCEEDS_THRESHOLD",
+    "threshold": 0.1,
+    "capa_required": true,
+    "formula": "Pf = 1 − Π(1 − Pj)",
+    "precision_note": "Value shown rounded to 4 decimal places; actual computation maintains full floating-point precision"
+  },
+  "calculation_trace": "Pf = 1 − (0.9 × 0.95 × 0.98) = 1 − 0.8379 = 0.1621 > 0.1 → CAPA required",
+  "cli_command": "python -m src.math_engine.cli incident --probabilities 0.1,0.05,0.02 --threshold 0.1",
+  "research_note": "Foundation output — validation against process safety engineering benchmarks pending"
+}

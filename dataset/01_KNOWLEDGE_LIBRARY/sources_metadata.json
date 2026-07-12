@@ -1,0 +1,29 @@
+{
+  "library": "01_KNOWLEDGE_LIBRARY",
+  "description": "HSSE regulatory standards, codes of practice, safety policies, and formal procedures",
+  "version": "1.0.0",
+  "files": [
+    {
+      "path": "regulations/osha_regulations.json",
+      "source_type": "regulation",
+      "issuing_body": "OSHA",
+      "hsse_areas": [3, 12, 14, 15, 19, 25, 28, 29, 33, 35, 36, 37, 38, 41]
+    },
+    {
+      "path": "standards/iso_standards.json",
+      "source_type": "standard",
+      "issuing_body": "ISO",
+      "hsse_areas": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 40, 42, 43, 44, 50]
+    },
+    {
+      "path": "policies/safety_policies.json",
+      "source_type": "policy",
+      "hsse_areas": [1, 2, 7, 11, 14, 15, 46]
+    },
+    {
+      "path": "procedures/safety_procedures.json",
+      "source_type": "procedure",
+      "hsse_areas": [14, 15, 16, 35, 36, 37, 38]
+    }
+  ]
+}

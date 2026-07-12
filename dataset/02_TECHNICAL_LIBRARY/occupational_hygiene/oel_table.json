@@ -1,0 +1,61 @@
+{
+  "source_type": "occupational_hygiene_reference",
+  "hsse_areas": [41, 29, 30, 40],
+  "exposure_limits": [
+    {
+      "substance": "Silica (Respirable Crystalline — Quartz)",
+      "pel_osha_ug_per_m3": 50,
+      "action_level_ug_per_m3": 25,
+      "tel_niosh_ug_per_m3": 50,
+      "exposure_route": "inhalation",
+      "health_effect": "Silicosis, lung cancer, COPD",
+      "reference": "OSHA 29 CFR 1926.1153; NIOSH REL",
+      "hsse_areas": [41, 19]
+    },
+    {
+      "substance": "Benzene",
+      "pel_osha_ppm": 1.0,
+      "stel_osha_ppm": 5.0,
+      "exposure_route": "inhalation, skin absorption",
+      "health_effect": "Carcinogenic — leukemia; CNS effects",
+      "reference": "OSHA 29 CFR 1910.1028",
+      "hsse_areas": [41, 53]
+    },
+    {
+      "substance": "Hydrogen Sulfide (H2S)",
+      "pel_osha_ppm": 20.0,
+      "ceiling_ppm": 50.0,
+      "idlh_ppm": 100.0,
+      "exposure_route": "inhalation",
+      "health_effect": "Rapid incapacitation and death at high concentrations; olfactory fatigue",
+      "reference": "OSHA 29 CFR 1910.1000 Table Z-2; API RP 49",
+      "hsse_areas": [41, 53, 35]
+    },
+    {
+      "substance": "Carbon Monoxide (CO)",
+      "pel_osha_ppm": 50.0,
+      "niosh_rel_ppm": 35.0,
+      "idlh_ppm": 1200.0,
+      "exposure_route": "inhalation",
+      "health_effect": "Asphyxiation, cardiovascular effects",
+      "reference": "OSHA 29 CFR 1910.1000 Table Z-1",
+      "hsse_areas": [41, 35]
+    },
+    {
+      "substance": "Asbestos (all forms)",
+      "pel_osha_fibers_per_cc": 0.1,
+      "action_level_fibers_per_cc": 0.1,
+      "exposure_route": "inhalation",
+      "health_effect": "Mesothelioma, asbestosis, lung cancer",
+      "reference": "OSHA 29 CFR 1926.1101 (Construction); 1910.1001 (General Industry)",
+      "hsse_areas": [41, 51]
+    }
+  ],
+  "noise_limits": {
+    "pel_osha_dba_8hr": 90,
+    "action_level_dba": 85,
+    "niosh_rel_dba": 85,
+    "exchange_rate_db": 5,
+    "reference": "OSHA 29 CFR 1910.95"
+  }
+}

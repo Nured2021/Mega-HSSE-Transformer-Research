@@ -1,0 +1,97 @@
+[
+  {
+    "scenario_id": "reason_multi_001",
+    "scenario": "Workers plan to enter a storage vessel to clean residues. The vessel last contained flammable solvent. Gas monitor reads 8% LEL. No permit has been issued. One worker is already inside.",
+    "inputs": {"gas_lel_percent": 8.0, "permit_status": "missing", "worker_inside": true},
+    "expected_decision": "STOP WORK — Immediate evacuation required: 8% LEL in confined space with personnel inside; no permit; fire and asphyxiation risk. Evacuate and do not re-enter until atmosphere is cleared and permit issued.",
+    "evidence_sources": ["OSHA 1910.146 — Confined Spaces", "OSHA 1910.119 — PSM LEL thresholds", "Hot Work Permit to Work procedure"],
+    "hsse_areas": [25, 35, 14],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "validation",
+    "suite": "multi_risk"
+  },
+  {
+    "scenario_id": "reason_expert_001",
+    "scenario": "Fine-Kinney risk assessment conducted by site HSSE officer gives a score of 540. Expert consultant independently calculated the same scenario and obtained the same result.",
+    "inputs": {"risk_score": 540.0},
+    "expected_decision": "STOP WORK — Extreme Risk Level Detected",
+    "expert_decision": "STOP WORK — Extreme Risk Level Detected",
+    "evidence_sources": ["Fine-Kinney Risk Assessment (Kinney & Wiruth, 1976)"],
+    "hsse_areas": [5],
+    "uncertainty_required": false,
+    "split": "validation",
+    "suite": "expert_comparison"
+  },
+  {
+    "scenario_id": "reason_domain_001",
+    "scenario": "Worker cutting granite with dry diamond blade for 4 hours. Industrial hygiene monitoring shows silica TWA of 0.07 mg/m³ against OEL of 0.05 mg/m³. Only N95 respirator is provided.",
+    "inputs": {"twa_value": 0.07, "twa_oel": 0.05, "hazard": "silica dust"},
+    "expected_decision": "CORRECTIVE ACTION REQUIRED — TWA Exceeds Occupational Exposure Limit",
+    "evidence_sources": ["OSHA 29 CFR 1926.1153 — Silica in Construction", "NIOSH silica guidance"],
+    "hsse_areas": [41, 19],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "validation",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "reason_no_guess_001",
+    "scenario": "A worker asks whether it is safe to enter a maintenance pit where a chemical leak occurred earlier. The leak source, chemical identity, and current atmospheric conditions are all unknown.",
+    "inputs": {"question": "chemical hazard, entry decision"},
+    "expected_decision": "INSUFFICIENT INFORMATION — Cannot determine safe decision without verified evidence",
+    "evidence_sources": ["Atmospheric testing required", "Chemical identity must be established before entry assessment"],
+    "hsse_areas": [28, 35],
+    "multi_domain_link": true,
+    "uncertainty_required": true,
+    "split": "validation",
+    "suite": "no_guessing"
+  },
+  {
+    "scenario_id": "reason_multi_002",
+    "scenario": "Electrician working on an 11 kV circuit breaker. LOTO procedure was started but only electrical isolation was applied. Pneumatic actuator on the breaker was not isolated. Worker is about to open the cabinet.",
+    "inputs": {"permit_status": "incomplete isolation"},
+    "expected_decision": "STOP WORK — All energy sources must be isolated and verified at zero energy state before cabinet is opened; LOTO must cover electrical, pneumatic, and stored energy sources",
+    "evidence_sources": ["OSHA 29 CFR 1910.147 — Control of Hazardous Energy", "NFPA 70E", "All energy sources must be isolated"],
+    "hsse_areas": [15, 33],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "validation",
+    "suite": "multi_risk"
+  },
+  {
+    "scenario_id": "reason_expert_002",
+    "scenario": "Crane rigging for offshore module installation. Computed safety factor by rigger is 4.2. Independent check by lifting engineer confirms the same value.",
+    "inputs": {"safety_factor": 4.2},
+    "expected_decision": "STOP WORK AUTHORITY — Insufficient Safety Factor",
+    "expert_decision": "STOP WORK AUTHORITY — Insufficient Safety Factor",
+    "evidence_sources": ["DNV-OS-H205", "ASME B30.9 — minimum SF 5.0 for critical lifts"],
+    "hsse_areas": [37],
+    "uncertainty_required": false,
+    "split": "validation",
+    "suite": "expert_comparison"
+  },
+  {
+    "scenario_id": "reason_no_guess_002",
+    "scenario": "An operator asks whether a pressure vessel can be taken above its design pressure based on looking at it visually without any inspection certificate or design documentation.",
+    "inputs": {"question": "pressure vessel, operating above design pressure"},
+    "expected_decision": "INSUFFICIENT INFORMATION — Cannot determine safe decision without verified evidence",
+    "evidence_sources": ["Pressure vessel design documentation required", "Current inspection certificate required", "Do not operate beyond design limits without engineering authority sign-off"],
+    "hsse_areas": [39],
+    "uncertainty_required": true,
+    "split": "validation",
+    "suite": "no_guessing"
+  },
+  {
+    "scenario_id": "reason_domain_002",
+    "scenario": "Demolition workers are disturbing ceiling tiles in a building constructed in 1978. Asbestos survey has not been conducted.",
+    "inputs": {"task": "demolition, potential asbestos", "survey_complete": false},
+    "expected_decision": "STOP WORK — Asbestos survey required before any disturbance of suspect materials in buildings built before 1990; potential asbestos-containing materials must be tested before demolition proceeds",
+    "evidence_sources": ["OSHA 29 CFR 1926.1101 — Asbestos in Construction", "NIOSH Asbestos Exposure Control"],
+    "hsse_areas": [41, 18],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "validation",
+    "suite": "technical_selection"
+  }
+]

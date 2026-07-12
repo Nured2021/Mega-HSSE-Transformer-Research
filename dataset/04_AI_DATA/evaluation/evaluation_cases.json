@@ -1,0 +1,119 @@
+[
+  {
+    "scenario_id": "eval_constr_001",
+    "scenario": "Construction worker is applying waterproofing membrane on a flat roof 8 metres above ground without any fall protection.",
+    "inputs": {"task": "roof waterproofing", "height_m": 8.0, "fall_protection": "none"},
+    "expected_decision": "STOP WORK — Fall protection is required at any height above 1.8 m on construction sites; install edge protection or provide full body harness with rated anchor before work resumes",
+    "evidence_sources": ["OSHA 29 CFR 1926.502 — Fall Protection", "ISO 45001:2018 Clause 8.1"],
+    "hsse_areas": [51, 36],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "test",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "eval_mining_001",
+    "scenario": "Underground mining crew detects methane concentration of 1.5% in a development heading. Normal operations are continuing.",
+    "inputs": {"gas": "methane", "concentration_percent": 1.5, "operations": "continuing"},
+    "expected_decision": "STOP WORK — Methane exceeds 1% threshold for mandatory evacuation of section; withdraw workers, increase ventilation, retest before reentry",
+    "evidence_sources": ["MSHA 30 CFR Part 57 — Underground Mines", "Methane action threshold 1% v/v"],
+    "hsse_areas": [52, 25],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "test",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "eval_oilgas_001",
+    "scenario": "H2S gas detector on an offshore drilling rig alarms at 5 ppm. Workers are in the affected area without H2S escape sets.",
+    "inputs": {"gas": "h2s", "concentration_ppm": 5.0, "escape_sets": "none"},
+    "expected_decision": "STOP WORK — H2S detected above 1 ppm action level without escape sets; evacuate affected area; muster headcount; deploy H2S control measures before return",
+    "evidence_sources": ["API RP 49 — H2S in Drilling Operations", "OSHA 29 CFR 1910.1000 H2S limits"],
+    "hsse_areas": [53, 25],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "test",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "eval_marine_001",
+    "scenario": "A crew member falls overboard from a marine vessel. The vessel is underway in open water at night.",
+    "inputs": {"emergency": "man overboard", "conditions": "night, open water"},
+    "expected_decision": "STOP WORK — Man Overboard Emergency: throw life ring immediately; post lookout to maintain visual contact; manoeuvre vessel for recovery; transmit MAYDAY on VHF Channel 16; deploy rescue boat",
+    "evidence_sources": ["SOLAS Chapter III — Life-Saving Appliances", "IACS Unified Requirement — MOB Procedures"],
+    "hsse_areas": [54, 24],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "test",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "eval_aviation_001",
+    "scenario": "Helicopter landing on offshore helideck with red deck status — firefighting foam system is unserviceable and rescue net is removed for maintenance.",
+    "inputs": {"helideck_status": "red", "foam_system": "unserviceable"},
+    "expected_decision": "STOP WORK — Helideck red status: all helicopter landings prohibited until firefighting foam system is restored to full serviceability and rescue net is reinstalled",
+    "evidence_sources": ["ICAO Annex 14 — Heliports", "CAP 437 — Standards for Offshore Helicopter Landing Areas"],
+    "hsse_areas": [55],
+    "uncertainty_required": false,
+    "split": "test",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "eval_logistic_001",
+    "scenario": "Forklift is operating in a pedestrian zone without audible warnings or physical segregation barriers in a busy warehouse.",
+    "inputs": {"task": "forklift operation", "pedestrian_segregation": "none", "audible_warning": false},
+    "expected_decision": "STOP WORK — Implement pedestrian and forklift segregation immediately: physical barriers, floor markings, audible warnings, and speed limiters required before operations resume",
+    "evidence_sources": ["OSHA 29 CFR 1910.178 — Powered Industrial Trucks", "ISO 3691 — Industrial Trucks Safety"],
+    "hsse_areas": [56],
+    "uncertainty_required": false,
+    "split": "test",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "eval_transport_001",
+    "scenario": "Driver of a heavy goods vehicle has been driving for 9 consecutive hours without a mandatory rest break. Journey management plan requires 45-minute break every 4.5 hours.",
+    "inputs": {"driving_hours_consecutive": 9.0, "break_taken": false},
+    "expected_decision": "Stop vehicle immediately: driver is in violation of hours of service regulations; take mandatory rest before journey continues; review journey management plan compliance",
+    "evidence_sources": ["EU Drivers Hours Regulation EC 561/2006", "OSHA Driver Fatigue Guidelines", "IOGP Life Saving Rules — Journey Management"],
+    "hsse_areas": [57],
+    "uncertainty_required": false,
+    "split": "test",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "eval_manuf_001",
+    "scenario": "Production press operating without point-of-operation guard. Operator's hands must enter the danger zone to load parts.",
+    "inputs": {"guard_status": "missing", "task": "production press loading"},
+    "expected_decision": "STOP WORK — Immediate machine guarding is required at point of operation; install two-hand controls, barrier guard, or light curtain before production resumes",
+    "evidence_sources": ["OSHA 29 CFR 1910.212 — Machine Guarding", "ISO 12100 — Safety of Machinery", "ANSI B11.1 — Safety Requirements for Mechanical Power Presses"],
+    "hsse_areas": [58, 34],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "test",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "eval_waste_001",
+    "scenario": "Drums of used engine oil and chemical sludge are being mixed together in an open skip prior to disposal. No hazardous waste manifest has been prepared.",
+    "inputs": {"task": "hazardous waste disposal", "waste_manifest": "missing", "waste_mixed": true},
+    "expected_decision": "Stop disposal: hazardous wastes must be segregated by compatibility; hazardous waste manifest required; licensed hazardous waste contractor must be engaged for disposal",
+    "evidence_sources": ["RCRA — Resource Conservation and Recovery Act", "EPA Hazardous Waste Regulations 40 CFR Part 260"],
+    "hsse_areas": [42, 43],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "test",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "eval_occ_health_001",
+    "scenario": "A medical surveillance review shows 3 workers in the grinding shop have developed early-stage silicosis on their periodic chest X-ray.",
+    "inputs": {"health_finding": "silicosis (early stage)", "workers_affected": 3, "task": "grinding"},
+    "expected_decision": "Immediate response: remove affected workers from silica exposure pending specialist review; conduct full industrial hygiene re-survey; review and upgrade respiratory protection and engineering controls; notify regulator per local reporting requirements",
+    "evidence_sources": ["OSHA 29 CFR 1926.1153 — Silica", "ISO 45001:2018 Clause 10.2", "Occupational health surveillance requirements"],
+    "hsse_areas": [40, 41],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "test",
+    "suite": "technical_selection"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "scenario_id": "unsafe_oxygen_001",
+    "scenario": "Confined space entry requested with oxygen at 18%.",
+    "inputs": {
+      "oxygen_percent": 18.0
+    },
+    "expected_decision": "ENTRY DENIED — Unsafe Atmospheric Condition",
+    "evidence_sources": [
+      "OSHA 1910.146 — Permit-Required Confined Spaces"
+    ],
+    "hsse_areas": [35],
+    "uncertainty_required": false,
+    "split": "benchmark",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "no_guess_chem_001",
+    "scenario": "Can two chemicals be mixed safely when chemical identity and SDS are missing?",
+    "inputs": {
+      "question": "chemical compatibility"
+    },
+    "expected_decision": "INSUFFICIENT INFORMATION — Cannot determine safe decision without verified evidence",
+    "evidence_sources": [
+      "Chemical identity required",
+      "Safety Data Sheet required"
+    ],
+    "hsse_areas": [28],
+    "uncertainty_required": true,
+    "split": "benchmark",
+    "suite": "no_guessing"
+  },
+  {
+    "scenario_id": "domain_silica_001",
+    "scenario": "Worker is exposed to silica dust during concrete cutting without respiratory controls.",
+    "inputs": {
+      "hazard": "silica dust",
+      "task": "cutting concrete"
+    },
+    "expected_decision": "Apply industrial hygiene exposure controls and respiratory protection before work continues",
+    "evidence_sources": [
+      "OSHA 29 CFR 1926.1153",
+      "NIOSH silica guidance"
+    ],
+    "hsse_areas": [41, 19],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "benchmark",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "multi_risk_lift_001",
+    "scenario": "Crane lift during high wind with worker under suspended load and missing permit.",
+    "inputs": {
+      "safety_factor": 3.33,
+      "permit_status": "missing",
+      "wind_kmh": 40
+    },
+    "expected_decision": "STOP WORK AUTHORITY — Insufficient Safety Factor",
+    "evidence_sources": [
+      "ASME B30.9",
+      "Permit to Work procedure"
+    ],
+    "hsse_areas": [37, 14, 17],
+    "multi_domain_link": true,
+    "uncertainty_required": false,
+    "split": "benchmark",
+    "suite": "multi_risk"
+  },
+  {
+    "scenario_id": "expert_compare_risk_001",
+    "scenario": "Fine-Kinney risk score above extreme threshold in active operation.",
+    "inputs": {
+      "risk_score": 540.0
+    },
+    "expected_decision": "STOP WORK — Extreme Risk Level Detected",
+    "expert_decision": "STOP WORK — Extreme Risk Level Detected",
+    "evidence_sources": [
+      "Fine-Kinney Risk Assessment (Kinney & Wiruth, 1976)"
+    ],
+    "hsse_areas": [5],
+    "uncertainty_required": false,
+    "split": "benchmark",
+    "suite": "expert_comparison"
+  }
+]

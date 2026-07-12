@@ -1,0 +1,10 @@
+{
+  "library": "03_GENERAL_KNOWLEDGE",
+  "description": "General HSSE knowledge including fundamentals, definitions, and terminology",
+  "version": "1.0.0",
+  "files": [
+    {"path": "safety_basics/hsse_fundamentals.json", "hsse_areas": [1, 2, 5, 6, 11, 18, 50]},
+    {"path": "definitions/key_definitions.json", "hsse_areas": [5, 6, 11, 14, 15, 20, 21, 22, 41, 48, 49]},
+    {"path": "terminology/hsse_acronyms.json", "hsse_areas": [1, 5, 14, 15, 16, 17, 18, 19, 20, 21, 22, 41, 50]}
+  ]
+}

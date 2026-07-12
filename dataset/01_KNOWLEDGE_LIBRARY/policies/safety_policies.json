@@ -1,0 +1,45 @@
+{
+  "source_type": "policy",
+  "document_type": "safety_policy_reference",
+  "hsse_areas": [1, 2, 14, 15, 46],
+  "policies": [
+    {
+      "policy_id": "PTW-POL-001",
+      "title": "Permit to Work Policy",
+      "summary": "All non-routine, hazardous, or high-risk work activities require a valid Permit to Work (PTW) before commencement. PTW types include Hot Work, Confined Space Entry, Electrical Isolation, Working at Height, and Excavation.",
+      "applicability": "All contractors, subcontractors, and employees performing work on controlled sites",
+      "key_requirements": [
+        "PTW must be issued by an authorized PTW issuer",
+        "All hazards must be identified and controls applied before work starts",
+        "Atmospheric testing required for confined space and hot work permits",
+        "PTW must be closed out and signed off on completion",
+        "Simultaneous operations (SIMOPS) must be reviewed by senior supervisor"
+      ],
+      "hsse_areas": [14]
+    },
+    {
+      "policy_id": "SWA-POL-001",
+      "title": "Stop Work Authority Policy",
+      "summary": "Any worker at any level has the right and responsibility to stop any work they believe presents an imminent danger to life, health, or the environment. No worker shall face retaliation for exercising Stop Work Authority (SWA).",
+      "key_requirements": [
+        "All personnel must be trained on Stop Work Authority during induction",
+        "SWA exercises must be reported and documented",
+        "Work must not resume until hazard is resolved and authorized re-start is given",
+        "SWA near-misses are tracked as a leading indicator"
+      ],
+      "hsse_areas": [11]
+    },
+    {
+      "policy_id": "MOC-POL-001",
+      "title": "Management of Change Policy",
+      "summary": "All changes to processes, equipment, procedures, chemicals, staffing, or site layouts must be reviewed through the formal Management of Change (MOC) process before implementation.",
+      "key_requirements": [
+        "MOC request must describe the nature of change and reason",
+        "Hazard identification and risk assessment must be updated for the change",
+        "Affected personnel must be trained before change is implemented",
+        "MOC must be approved by HSSE and engineering before sign-off"
+      ],
+      "hsse_areas": [7]
+    }
+  ]
+}

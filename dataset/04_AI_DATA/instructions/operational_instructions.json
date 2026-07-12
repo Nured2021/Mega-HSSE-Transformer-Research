@@ -1,0 +1,167 @@
+[
+  {
+    "scenario_id": "ops_ptw_001",
+    "scenario": "Contractor is about to start welding work inside a live process area without a hot work permit.",
+    "inputs": {"work_type": "hot work", "permit_status": "missing"},
+    "expected_decision": "STOP WORK — Hot work permit required before any ignition source is introduced into a process area; isolate ignition sources until valid PTW is issued",
+    "evidence_sources": ["OSHA 1910.119 PSM", "Hot Work Permit to Work Procedure"],
+    "hsse_areas": [14],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "ops_loto_001",
+    "scenario": "Maintenance technician is about to perform servicing on a pump that drives a hazardous chemical line. No LOTO procedure has been applied.",
+    "inputs": {"task": "pump maintenance", "loto_applied": false, "chemical_line": true},
+    "expected_decision": "STOP WORK — LOTO must be applied to all energy sources (electrical, pneumatic, chemical) before maintenance begins; verify zero energy state before entry",
+    "evidence_sources": ["OSHA 29 CFR 1910.147 — Lockout/Tagout", "Energy Control Program"],
+    "hsse_areas": [15],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "ops_jsa_001",
+    "scenario": "A team is about to perform a task that has never been done at this site before. No Job Safety Analysis has been prepared.",
+    "inputs": {"task": "novel task, no JSA prepared"},
+    "expected_decision": "Stop work: conduct JSA before starting. Identify all hazards step-by-step, assign controls at each step, obtain supervisor approval before proceeding",
+    "evidence_sources": ["ISO 45001:2018 Clause 8.1 — Operational Planning and Control", "Job Safety Analysis procedure"],
+    "hsse_areas": [16],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "ops_bbs_001",
+    "scenario": "During a BBS observation, a worker is seen lifting a 30 kg object alone using a bent-back posture without mechanical assistance.",
+    "inputs": {"task": "manual handling", "technique": "incorrect posture", "weight_kg": 30.0},
+    "expected_decision": "Intervene: correct lifting technique immediately; assess if task requires mechanical handling aid; update JSA and manual handling risk assessment; provide refresher training",
+    "evidence_sources": ["Manual Handling Operations Regulations", "NIOSH Lifting Equation"],
+    "hsse_areas": [17],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "general"
+  },
+  {
+    "scenario_id": "ops_hoc_001",
+    "scenario": "Workers in a grinding area are relying entirely on earplugs as the noise control measure. Noise levels are 98 dBA. Engineering controls have not been assessed.",
+    "inputs": {"noise_dba": 98.0, "control_type": "PPE only"},
+    "expected_decision": "Review hierarchy of controls: engineering controls (noise enclosure, damping, isolation) must be assessed before relying solely on PPE. PPE is last resort, not primary control.",
+    "evidence_sources": ["ISO 45001:2018 Clause 8.1.2 — Hierarchy of Controls", "OSHA 29 CFR 1910.95"],
+    "hsse_areas": [18],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "ops_ppe_001",
+    "scenario": "Workers performing concrete cutting need respiratory protection against silica dust. What respiratory protection should be selected?",
+    "inputs": {"hazard": "silica dust", "task": "concrete cutting", "oel_ug_m3": 50.0},
+    "expected_decision": "Select minimum N95 respirator (half-face APF 10) for incidental silica exposure; P100 half-face (APF 10) or powered air-purifying respirator for heavy cutting; fit test required for all tight-fitting respirators",
+    "evidence_sources": ["OSHA 29 CFR 1926.1153 — Silica in Construction", "NIOSH Respirator Selection Logic"],
+    "hsse_areas": [19],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "ops_induction_001",
+    "scenario": "A subcontractor worker arrived on site and went directly to work without completing mandatory HSSE induction training.",
+    "inputs": {"worker_type": "subcontractor", "induction_completed": false},
+    "expected_decision": "STOP WORK — No person may enter a controlled work site without completing mandatory HSSE induction. Remove worker from site immediately and reschedule induction.",
+    "evidence_sources": ["Contractor Management Procedure", "ISO 45001:2018 Clause 8.1.4 — Procurement"],
+    "hsse_areas": [45],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "ops_doc_001",
+    "scenario": "A work crew is using a confined space entry procedure that was last revised 5 years ago. Site conditions have changed significantly since that revision.",
+    "inputs": {"document": "confined space procedure", "last_revision_years": 5, "conditions_changed": true},
+    "expected_decision": "Stop work pending document review: outdated procedure must be revised to reflect current site conditions; work shall not proceed using superseded documents",
+    "evidence_sources": ["ISO 9001:2015 Clause 7.5 — Document Control", "ISO 45001:2018 Clause 7.5"],
+    "hsse_areas": [46],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "ops_resource_001",
+    "scenario": "Confined space entry task requires a dedicated attendant at the entry point. The only available person for the task is also assigned as the entrant.",
+    "inputs": {"task": "confined space entry", "attendant_available": false},
+    "expected_decision": "Stop work: confined space entry requires a separate, dedicated attendant who does not enter the space. Obtain additional resource before work commences.",
+    "evidence_sources": ["OSHA 1910.146 — Confined Space Attendant Role", "Permit to Work requirements"],
+    "hsse_areas": [47],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "ops_risk_001",
+    "scenario": "Fine-Kinney risk assessment gives a score of 450 for a maintenance task on an energized high-voltage switchboard.",
+    "inputs": {"risk_score": 450.0},
+    "expected_decision": "STOP WORK — Extreme Risk Level Detected",
+    "evidence_sources": ["Fine-Kinney Risk Assessment (Kinney & Wiruth, 1976)", "Risk score ≥ 400 = Extreme risk: work cessation mandatory"],
+    "hsse_areas": [5],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "ops_hazid_001",
+    "scenario": "A new chemical solvent is being introduced to the painting process. No hazard identification has been performed for this new substance.",
+    "inputs": {"task": "new chemical introduction", "hazid_complete": false},
+    "expected_decision": "Stop use: obtain SDS, conduct HAZID for new chemical, update chemical register and risk assessment, train workers on hazards before chemical is introduced to workplace",
+    "evidence_sources": ["OSHA Hazard Communication Standard (HazCom 2012)", "ISO 45001:2018 Clause 6.1.2 — Hazard Identification"],
+    "hsse_areas": [6],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "technical_selection"
+  },
+  {
+    "scenario_id": "ops_moc_001",
+    "scenario": "Engineering team has modified a feed pipe diameter in a chemical process without raising a Management of Change request.",
+    "inputs": {"task": "process modification", "moc_raised": false},
+    "expected_decision": "STOP WORK — Process modification without MOC approval is prohibited. Raise MOC immediately, conduct HAZOP review of change, update P&IDs and operating procedures before restart",
+    "evidence_sources": ["OSHA 29 CFR 1910.119(l) — Management of Change", "ISO 45001:2018 Clause 8.1.3"],
+    "hsse_areas": [7],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "ops_contract_001",
+    "scenario": "A new contractor is mobilising to site. Their HSSE prequalification has not been reviewed or approved.",
+    "inputs": {"contractor_status": "prequalification not approved"},
+    "expected_decision": "STOP mobilisation: contractor must complete HSSE prequalification assessment and receive approval before any personnel are allowed on site",
+    "evidence_sources": ["Contractor Management Procedure", "ISO 45001:2018 Clause 8.1.4"],
+    "hsse_areas": [8],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "ops_training_001",
+    "scenario": "An operator is observed using a mobile elevated work platform (MEWP) without the required MEWP operator certification.",
+    "inputs": {"equipment": "MEWP", "certification": "none"},
+    "expected_decision": "STOP WORK — Operator must hold valid certification for MEWP operation. Remove from task immediately and arrange certified replacement operator",
+    "evidence_sources": ["IPAF Operator Training Standards", "OSHA aerial work platform requirements"],
+    "hsse_areas": [9],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "unsafe_detection"
+  },
+  {
+    "scenario_id": "ops_comm_001",
+    "scenario": "Night shift started work on a plant turnaround without receiving a formal handover briefing from the outgoing day shift. Critical isolation status was not communicated.",
+    "inputs": {"handover_conducted": false, "shift_type": "night shift", "isolation_status_communicated": false},
+    "expected_decision": "Stop all non-emergency work: conduct immediate handover briefing to confirm isolation status and ongoing work conditions before night shift activities resume",
+    "evidence_sources": ["ISO 45001:2018 Clause 7.4 — Communication", "Handover procedure requirements"],
+    "hsse_areas": [10],
+    "uncertainty_required": false,
+    "split": "train",
+    "suite": "general"
+  }
+]
