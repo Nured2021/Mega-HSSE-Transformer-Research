@@ -115,10 +115,10 @@ See [`docs/BUILD_AND_PROOF_PLAN.md`](../docs/BUILD_AND_PROOF_PLAN.md) for detail
 
 Anyone can train using their own data by keeping this folder layout:
 
-- `/home/runner/work/Mega-HSSE-Transformer-Research/Mega-HSSE-Transformer-Research/dataset/01_KNOWLEDGE_LIBRARY`
-- `/home/runner/work/Mega-HSSE-Transformer-Research/Mega-HSSE-Transformer-Research/dataset/02_TECHNICAL_LIBRARY`
-- `/home/runner/work/Mega-HSSE-Transformer-Research/Mega-HSSE-Transformer-Research/dataset/03_GENERAL_KNOWLEDGE`
-- `/home/runner/work/Mega-HSSE-Transformer-Research/Mega-HSSE-Transformer-Research/dataset/04_AI_DATA`
+- `dataset/01_KNOWLEDGE_LIBRARY`
+- `dataset/02_TECHNICAL_LIBRARY`
+- `dataset/03_GENERAL_KNOWLEDGE`
+- `dataset/04_AI_DATA`
 
 Then:
 
