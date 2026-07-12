@@ -3,7 +3,7 @@
 This folder contains the dataset structure for the Mega HSSE Transformer research project.
 
 **Status:** Phase 3 complete. All 4 layers populated. Training pipeline operational.
-**Total training records:** 70 across all 60 HSSE attention heads.
+**Total training records:** 130 across all 60 HSSE attention heads.
 **Target scale:** 1.5 TB (HSSE_AI_DATASET_MAX — future expansion)
 
 ---
@@ -123,7 +123,7 @@ The four dataset layers are now populated and the training pipeline is operation
 | `01_KNOWLEDGE_LIBRARY` | OSHA regulations, ISO standards, safety policies, procedures | ✅ Populated |
 | `02_TECHNICAL_LIBRARY` | Engineering references, chemical safety, OEL tables, industry data | ✅ Populated |
 | `03_GENERAL_KNOWLEDGE` | HSSE fundamentals, definitions, acronyms | ✅ Populated |
-| `04_AI_DATA` | 70 labeled training records across all 60 HSSE heads | ✅ Populated |
+| `04_AI_DATA` | 130 labeled training records across all 60 HSSE heads | ✅ Populated |
 
 ### Training Records Summary
 
@@ -135,7 +135,8 @@ The four dataset layers are now populated and the training pipeline is operation
 | `instructions/operational_instructions.json` | train | 15 | unsafe_detection, technical_selection, general |
 | `reasoning_examples/reasoning_scenarios.json` | validation | 8 | multi_risk, expert_comparison, technical_selection, no_guessing |
 | `evaluation/evaluation_cases.json` | test | 10 | unsafe_detection, technical_selection |
-| **Total** | | **70** | All 6 suites |
+| `topic_examples/hazard_risk_control_decision_examples.json` | train | 60 | general (hazard → risk → control → decision) |
+| **Total** | | **130** | All 6 suites |
 
 ### Phase 3 Pipeline Commands
 
@@ -160,7 +161,7 @@ python -m src.math_engine.cli evaluate \
 
 After running the pipeline command, the following split files are produced:
 
-- `04_AI_DATA/training/train.jsonl` — ~47 records for model training
+- `04_AI_DATA/training/train.jsonl` — ~107 records for model training
 - `04_AI_DATA/training/validation.jsonl` — ~8 records for validation
 - `04_AI_DATA/training/test.jsonl` — ~15 records for final testing
 

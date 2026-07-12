@@ -9,6 +9,7 @@
     "incident_cases/incident_scenarios.json",
     "instructions/operational_instructions.json",
     "reasoning_examples/reasoning_scenarios.json",
-    "evaluation/evaluation_cases.json"
+    "evaluation/evaluation_cases.json",
+    "topic_examples/hazard_risk_control_decision_examples.json"
   ]
 }

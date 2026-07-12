@@ -175,7 +175,8 @@ def select_attention_heads(scenario: str, inputs: Dict[str, Any], top_k: int = 5
     """Select relevant HSSE heads from scenario text and input keys."""
     text = _normalize_text(scenario)
     input_terms = " ".join(_normalize_text(str(key)) for key in inputs)
-    combined = f"{text} {input_terms}"
+    input_values = " ".join(_normalize_text(str(value)) for value in inputs.values())
+    combined = f"{text} {input_terms} {input_values}"
 
     scored: List[tuple[int, int]] = []
     for area, meta in HEAD_DOMAIN_MAP.items():

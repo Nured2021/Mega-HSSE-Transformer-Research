@@ -185,7 +185,9 @@
       "behavior",
       "observation",
       "intervention",
-      "bbs"
+      "bbs",
+      "suspended load",
+      "unsafe behavior"
     ]
   },
   "head_18": {
@@ -196,7 +198,10 @@
       "control",
       "elimination",
       "substitution",
-      "mitigation"
+      "mitigation",
+      "control hierarchy",
+      "engineering control",
+      "survey"
     ]
   },
   "head_19": {
@@ -208,7 +213,9 @@
       "personal protective",
       "equipment",
       "respiratory",
-      "protection"
+      "protection",
+      "respirator",
+      "n95"
     ]
   },
   "head_20": {
@@ -275,7 +282,10 @@
       "explosion",
       "flammable",
       "suppression",
-      "lel"
+      "lel",
+      "methane",
+      "h2s",
+      "flammable gas"
     ]
   },
   "head_26": {
@@ -375,7 +385,9 @@
       "mechanical",
       "guarding",
       "machine",
-      "rotating"
+      "rotating",
+      "press",
+      "guard"
     ]
   },
   "head_35": {
@@ -386,7 +398,9 @@
       "confined space",
       "oxygen",
       "entry",
-      "atmospheric"
+      "atmospheric",
+      "storage vessel",
+      "worker inside"
     ]
   },
   "head_36": {
@@ -453,7 +467,9 @@
       "silica",
       "exposure",
       "twa",
-      "ih"
+      "ih",
+      "asbestos",
+      "silicosis"
     ]
   },
   "head_42": {
@@ -475,7 +491,9 @@
       "pollution",
       "emission",
       "spill",
-      "effluent"
+      "effluent",
+      "sludge",
+      "contamination"
     ]
   },
   "head_44": {

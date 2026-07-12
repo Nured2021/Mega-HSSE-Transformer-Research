@@ -106,17 +106,40 @@ HEAD_DOMAIN_MAP: Dict[int, dict] = {
     17: {
         "name": "Behavioral Based Safety",
         "zone": 2,
-        "keywords": ["behavior", "observation", "intervention", "bbs"],
+        "keywords": [
+            "behavior",
+            "observation",
+            "intervention",
+            "bbs",
+            "suspended load",
+            "unsafe behavior",
+        ],
     },
     18: {
         "name": "Hierarchy of Controls",
         "zone": 2,
-        "keywords": ["control", "elimination", "substitution", "mitigation"],
+        "keywords": [
+            "control",
+            "elimination",
+            "substitution",
+            "mitigation",
+            "control hierarchy",
+            "engineering control",
+            "survey",
+        ],
     },
     19: {
         "name": "Personal Protective Equipment",
         "zone": 2,
-        "keywords": ["ppe", "personal protective", "equipment", "respiratory", "protection"],
+        "keywords": [
+            "ppe",
+            "personal protective",
+            "equipment",
+            "respiratory",
+            "protection",
+            "respirator",
+            "n95",
+        ],
     },
     20: {
         "name": "Incident Reporting",
@@ -146,7 +169,16 @@ HEAD_DOMAIN_MAP: Dict[int, dict] = {
     25: {
         "name": "Fire Safety",
         "zone": 4,
-        "keywords": ["fire", "explosion", "flammable", "suppression", "lel"],
+        "keywords": [
+            "fire",
+            "explosion",
+            "flammable",
+            "suppression",
+            "lel",
+            "methane",
+            "h2s",
+            "flammable gas",
+        ],
     },
     26: {
         "name": "First Aid and Medical",
@@ -194,12 +226,19 @@ HEAD_DOMAIN_MAP: Dict[int, dict] = {
     34: {
         "name": "Mechanical Safety",
         "zone": 3,
-        "keywords": ["mechanical", "guarding", "machine", "rotating"],
+        "keywords": ["mechanical", "guarding", "machine", "rotating", "press", "guard"],
     },
     35: {
         "name": "Confined Space Safety",
         "zone": 3,
-        "keywords": ["confined space", "oxygen", "entry", "atmospheric"],
+        "keywords": [
+            "confined space",
+            "oxygen",
+            "entry",
+            "atmospheric",
+            "storage vessel",
+            "worker inside",
+        ],
     },
     36: {
         "name": "Working at Height",
@@ -232,7 +271,7 @@ HEAD_DOMAIN_MAP: Dict[int, dict] = {
     41: {
         "name": "Industrial Hygiene",
         "zone": 5,
-        "keywords": ["hygiene", "silica", "exposure", "twa", "ih"],
+        "keywords": ["hygiene", "silica", "exposure", "twa", "ih", "asbestos", "silicosis"],
     },
     42: {
         "name": "Waste Management",
@@ -242,7 +281,7 @@ HEAD_DOMAIN_MAP: Dict[int, dict] = {
     43: {
         "name": "Pollution Control",
         "zone": 5,
-        "keywords": ["pollution", "emission", "spill", "effluent"],
+        "keywords": ["pollution", "emission", "spill", "effluent", "sludge", "contamination"],
     },
     44: {
         "name": "Sustainability",
