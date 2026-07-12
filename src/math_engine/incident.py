@@ -55,8 +55,8 @@ def calculate_failure_probability(inputs: IncidentInput) -> IncidentOutput:
         >>> from src.math_engine.schemas import IncidentInput
         >>> inputs = IncidentInput(probabilities=[0.1, 0.05, 0.02], threshold=0.1)
         >>> result = calculate_failure_probability(inputs)
-        >>> round(result.combined_probability, 6)
-        0.163
+        >>> round(result.combined_probability, 4)
+        0.1621
         >>> result.status
         'EXCEEDS_THRESHOLD'
         >>> result.capa_required
